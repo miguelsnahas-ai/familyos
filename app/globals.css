@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Family OS — design tokens
+   Warm, calm palette (linen / near-black / single terracotta accent)
+   built on the structural system from DESIGN.md (hairline borders,
+   generous radius scale, pill buttons, type scale, spacing scale).
+----------------------------------------------------------------- */
+
+@theme {
+  /* Colors */
+  --color-canvas: #f5f1ea; /* page background — warm linen, never pure white */
+  --color-surface: #fbf9f4; /* card / surface tone, slightly lighter than canvas */
+  --color-stone: #eee9de; /* secondary block background */
+  --color-ink: #1a1815; /* headings, primary text — near-black, warm */
+  --color-body-brown: #4a453e; /* body copy */
+  --color-muted: #6e6a62; /* helper / muted text */
+  --color-border: #e3d9c8; /* hairline inset borders */
+  --color-accent: #b8583d; /* dusty terracotta — the one accent */
+  --color-accent-dark: #9a4732; /* accent hover/active */
+  --color-accent-tint: #f1ddd4; /* accent wash for badges/highlights */
+  --color-success: #6f8f6a; /* muted sage for success states only */
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+
+  /* Type scale */
+  --text-micro: 0.75rem;
+  --text-caption: 0.9375rem;
+  --text-body: 1.0625rem;
+  --text-subheading: 1.1875rem;
+  --text-heading: 1.4375rem;
+  --text-heading-lg: 2.75rem;
+  --text-display: 3.5rem;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-card: 10px;
+  --radius-illustration: 40px;
+  --radius-pill: 9999px;
+
+  /* Shadows — hairline only, no heavy elevation */
+  --shadow-hairline: inset 0 0 0 1px var(--color-border);
+  --shadow-soft: 0 1px 6px 0 rgba(26, 24, 21, 0.04), 0 0 20px 0 rgba(26, 24, 21, 0.03);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-body-brown);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent-tint);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
