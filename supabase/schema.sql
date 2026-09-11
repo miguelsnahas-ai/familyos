@@ -1,4 +1,4 @@
--- Family OS — waitlist leads table
+-- Quintal — waitlist leads table
 -- Run this once in the Supabase SQL editor for your project.
 
 create table if not exists public.waitlist_leads (
@@ -7,10 +7,23 @@ create table if not exists public.waitlist_leads (
   name text not null,
   email text not null,
   whatsapp text not null,
-  child_age text[] not null,
+  child_count text not null,
+  child_age text[] not null default '{}',
+  support_network text[] not null,
+  support_network_other text,
+  caregivers text[] not null,
+  caregivers_other text,
+  professionals text[] not null,
+  course_taken text not null,
+  course_which text,
+  app_used text not null,
   pain_point text not null,
   pain_point_other text,
-  willingness_to_pay text not null,
+  challenges text[] not null,
+  challenges_other text,
+  how_found text not null,
+  how_found_other text,
+  expectation text,
   family_setup_interest boolean not null default false,
   utm_source text,
   utm_medium text,

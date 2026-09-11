@@ -146,6 +146,16 @@ export const waitlist = {
     name: { label: "Nome", placeholder: "Seu nome" },
     email: { label: "Email", placeholder: "voce@email.com" },
     whatsapp: { label: "WhatsApp", placeholder: "(11) 99999-9999" },
+    childCount: {
+      label: "Quantos filhos você tem?",
+      options: [
+        { value: "gestante", label: "Estou gestante" },
+        { value: "1", label: "1" },
+        { value: "2", label: "2" },
+        { value: "3", label: "3" },
+        { value: "4+", label: "4 ou mais" },
+      ],
+    },
     childAge: {
       label: "Idade do(s) filho(s)",
       options: [
@@ -155,6 +165,54 @@ export const waitlist = {
         { value: "2-3a", label: "2–3 anos" },
         { value: "3-4a", label: "3–4 anos" },
         { value: "4-6a", label: "4–6 anos" },
+      ],
+    },
+    supportNetwork: {
+      label: "Vocês possuem rede de apoio?",
+      options: [
+        { value: "avos", label: "Avós" },
+        { value: "baba", label: "Babá ou cuidadora" },
+        { value: "creche", label: "Creche ou escola" },
+        { value: "amigos", label: "Amigos ou vizinhos" },
+        { value: "nenhuma", label: "Não temos rede de apoio" },
+        { value: "outra", label: "Outra" },
+      ],
+    },
+    caregivers: {
+      label: "Hoje quem participa ativamente na rotina de cuidado da(s) criança(s) além de você?",
+      options: [
+        { value: "conjuge", label: "Cônjuge ou parceiro(a)" },
+        { value: "avos", label: "Avós" },
+        { value: "baba", label: "Babá ou cuidadora" },
+        { value: "escola", label: "Escola ou creche" },
+        { value: "ninguem", label: "Ninguém, além de mim" },
+        { value: "outra", label: "Outra" },
+      ],
+    },
+    professionals: {
+      label: "Você já contratou ou utiliza o serviço de quais profissionais hoje?",
+      options: [
+        { value: "pediatra", label: "Pediatra" },
+        { value: "nutricionista", label: "Nutricionista" },
+        { value: "sono", label: "Consultora de Sono" },
+        { value: "amamentacao", label: "Consultora de Amamentação" },
+        { value: "brincar-rotina", label: "Consultora de Brincar/Rotina" },
+        { value: "enxoval", label: "Consultora de Enxoval" },
+        { value: "nenhuma", label: "Nenhum" },
+      ],
+    },
+    courseTaken: {
+      label: "Você já contratou algum curso para ajudar na parentalidade?",
+      options: [
+        { value: "sim", label: "Sim" },
+        { value: "nao", label: "Não" },
+      ],
+    },
+    appUsed: {
+      label: "Você utiliza ou já utilizou algum aplicativo para ajudar na parentalidade hoje?",
+      options: [
+        { value: "sim", label: "Sim" },
+        { value: "nao", label: "Não" },
       ],
     },
     painPoint: {
@@ -167,15 +225,34 @@ export const waitlist = {
         { value: "outra", label: "Outra" },
       ],
     },
-    willingnessToPay: {
-      label: "Quanto você toparia pagar por mês por um copiloto de parentalidade?",
+    challenges: {
+      label: "O que é mais desafiador na rotina de cuidado hoje?",
       options: [
-        { value: "ate-30", label: "Até R$ 30" },
-        { value: "30-50", label: "R$ 30 a R$ 50" },
-        { value: "50-80", label: "R$ 50 a R$ 80" },
-        { value: "80-150", label: "R$ 80 a R$ 150" },
-        { value: "depende", label: "Depende, quero entender mais" },
+        { value: "sono", label: "Sono da criança" },
+        { value: "rotina", label: "Rotina e organização do dia a dia" },
+        { value: "tela", label: "Reduzir tempo de tela" },
+        { value: "brincar", label: "Ideias de brincar e estímulo" },
+        { value: "desenvolvimento", label: "Desenvolvimento infantil" },
+        { value: "trabalho-cuidado", label: "Conciliar trabalho e cuidado" },
+        { value: "tempo-para-si", label: "Falta de tempo para si mesma(o)" },
+        { value: "cansaco", label: "Cansaço físico e mental" },
+        { value: "outra", label: "Outra" },
       ],
+    },
+    howFound: {
+      label: "Como você nos conheceu?",
+      options: [
+        { value: "instagram", label: "Instagram" },
+        { value: "indicacao", label: "Indicação de amigo(a) ou família" },
+        { value: "google", label: "Google" },
+        { value: "tiktok", label: "TikTok" },
+        { value: "grupo-whatsapp", label: "Grupo de WhatsApp" },
+        { value: "outra", label: "Outra" },
+      ],
+    },
+    expectation: {
+      label: "Qual é a sua principal expectativa com o uso do Quintal?",
+      placeholder: "Conta pra gente com suas palavras...",
     },
     familySetupInterest: "Também quero saber sobre o Family Setup (serviço R$ 500+)",
   },
