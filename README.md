@@ -29,12 +29,17 @@ UI sem depender de infra externa.
 
 ### Supabase (armazenamento dos leads)
 
-1. Crie um projeto em [supabase.com](https://supabase.com).
-2. No SQL editor do projeto, rode o conteúdo de `supabase/schema.sql`.
-3. Em Project Settings → API, copie a **Project URL** e a **service_role
-   key** para `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY`.
-4. A tabela tem RLS habilitado sem policies públicas — só a service role
-   key (usada no servidor, nunca no cliente) consegue gravar.
+Já está configurado: projeto `familyos` criado na organização Link
+Ventures (região sa-east-1), com a tabela `waitlist_leads` e uma policy
+de RLS que permite **apenas INSERT** com a chave anon/publishable — ela
+nunca consegue ler, atualizar ou apagar leads existentes, então é segura
+mesmo sendo uma chave "pública". Para ler os leads, use o SQL editor do
+Supabase (dashboard) ou a service_role key manualmente.
+
+Se precisar recriar do zero: rode `supabase/schema.sql` no SQL editor de
+um novo projeto e preencha `SUPABASE_URL` / `SUPABASE_ANON_KEY` com a
+Project URL e a chave anon/publishable (Project Settings → Data API /
+API Keys).
 
 ### Resend (email de confirmação)
 

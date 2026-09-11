@@ -1,14 +1,16 @@
 import { createClient } from "@supabase/supabase-js";
 
-// Server-only client using the service role key — never import this
-// from a client component. Used exclusively by the /api/waitlist route.
+// Uses the anon/publishable key — safe by design here because
+// waitlist_leads only has an INSERT policy for the anon role (no
+// select/update/delete), so this key can never read or modify existing
+// leads even if it leaked. Used exclusively by the /api/waitlist route.
 export function getSupabaseAdmin() {
   const url = process.env.SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const anonKey = process.env.SUPABASE_ANON_KEY;
 
-  if (!url || !serviceRoleKey) return null;
+  if (!url || !anonKey) return null;
 
-  return createClient(url, serviceRoleKey, {
+  return createClient(url, anonKey, {
     auth: { persistSession: false },
   });
 }
