@@ -11,7 +11,6 @@ export function Hero() {
     <section className="relative overflow-hidden pt-16 pb-16">
       <Container className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="flex flex-col items-start gap-5">
-          <p className="eyebrow">{hero.eyebrow}</p>
           <h1 className="text-display text-ink max-w-[16ch]">{hero.headline}</h1>
           <p className="max-w-[52ch] text-body-lg text-ink-soft">{hero.subheadline}</p>
           <div className="flex flex-wrap items-center gap-2.5 pt-2">

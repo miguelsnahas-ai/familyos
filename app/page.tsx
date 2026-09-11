@@ -5,6 +5,7 @@ import { BigIdea } from "@/components/sections/BigIdea";
 import { Pillars } from "@/components/sections/Pillars";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ChildProfile } from "@/components/sections/ChildProfile";
+import { SharedAccess } from "@/components/sections/SharedAccess";
 import { WhatItIsNot } from "@/components/sections/WhatItIsNot";
 import { FamilySetup } from "@/components/sections/FamilySetup";
 import { WaitlistSection } from "@/components/sections/WaitlistSection";
@@ -26,6 +27,7 @@ export default function Home() {
         <Pillars />
         <HowItWorks />
         <ChildProfile />
+        <SharedAccess />
         <WhatItIsNot />
         <FamilySetup />
         <WaitlistSection />

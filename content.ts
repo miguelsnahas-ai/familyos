@@ -2,7 +2,6 @@
 // iteração de texto sem mexer em componentes.
 
 export const hero = {
-  eyebrow: "Para famílias com crianças de 0 a 6 anos",
   headline: "O copiloto da sua família para uma infância mais saudável.",
   subheadline:
     "Sono, rotina e brincar sem carregar tudo na cabeça. Um copiloto de parentalidade no WhatsApp que transforma o que você já sabe em pequenas decisões práticas do dia a dia.",
@@ -29,6 +28,8 @@ export const painPoints = {
     "Que brincadeira faz sentido para a idade dele?",
     "Como criar uma rotina que funcione para a nossa família?",
     "Estou fazendo o suficiente pelo desenvolvimento dele?",
+    "Como evitar ou diminuir o uso de telas?",
+    "Como encaixar momentos para meu autocuidado na rotina?",
   ],
   closing: "O problema não é falta de informação. É transformar tudo isso em comportamento cotidiano.",
 };
@@ -109,14 +110,38 @@ export const howItWorks = {
 
 export const childProfile = {
   title: "Cada criança tem um perfil. As sugestões ficam cada vez mais suas.",
-  card: {
-    name: "Laura",
-    age: "2 anos e 3 meses",
-    routine: "Acorda 7h · soneca 13h–14h30 · dorme 20h",
-    interests: "Caixas, água, empilhar objetos, música",
-    recentPlay: "Brincou de encaixar potes na cozinha (ontem, 25min)",
-    parentNote: "\"Ela anda muito seletiva com comida essa semana.\"",
-  },
+  children: [
+    {
+      name: "Laura",
+      age: "2 anos e 3 meses",
+      routine: "Acorda 7h · soneca 13h–14h30 · dorme 20h",
+      interests: "Caixas, água, empilhar objetos, música",
+      recentPlay: "Brincou de encaixar potes na cozinha (ontem, 25min)",
+      parentNote: "\"Ela anda muito seletiva com comida essa semana.\"",
+    },
+    {
+      name: "Théo",
+      age: "4 anos e 8 meses",
+      routine: "Acorda 6h30 · sem soneca · dorme 20h30",
+      interests: "Dinossauros, bicicleta, desenho, quebra-cabeça",
+      recentPlay: "Montou uma pista de carrinho com almofadas (hoje, 40min)",
+      parentNote: "\"Ele tá numa fase de perguntar 'por quê' sobre tudo.\"",
+    },
+  ],
+};
+
+export const sharedAccess = {
+  eyebrow: "Acesso compartilhado",
+  title: "Mais de uma pessoa cuida? Todo mundo pode acessar.",
+  body: "Cônjuge, avós, babá — quem participa da rotina da criança pode usar o mesmo perfil pra tirar dúvidas sobre cuidado ou buscar ideias de brincadeiras. Ninguém fica de fora, e a criança recebe a mesma orientação, não importa quem está perguntando.",
+  roles: ["Cônjuge", "Avós", "Babá", "Escola"],
+  chat: [
+    { from: "parent" as const, text: "Avó: Que brincadeira faz sentido pra ela essa semana?" },
+    {
+      from: "system" as const,
+      text: "Nessa fase ela tá explorando encaixe e equilíbrio. Que tal empilhar potes ou caixas?",
+    },
+  ],
 };
 
 export const whatItIsNot = {
