@@ -6,13 +6,13 @@ import { waitlist } from "@/content";
 
 export function WaitlistSection() {
   return (
-    <section id="waitlist" className="bg-stone py-20 sm:py-28">
-      <Container className="max-w-[640px]">
-        <h2 className="font-serif text-[1.75rem] italic leading-tight text-ink sm:text-heading-lg">
-          {waitlist.title}
-        </h2>
-        <p className="mt-4 text-[17px] text-body-brown">{waitlist.subtitle}</p>
-        <Card className="mt-10 bg-surface p-6 sm:p-8">
+    <section id="waitlist" className="py-16">
+      <Container className="max-w-[640px] flex flex-col gap-4">
+        <Card tone="dark" className="flex flex-col gap-2">
+          <h2 className="font-display font-bold text-[24px] text-cream">{waitlist.title}</h2>
+          <p className="text-[15px] leading-relaxed text-cream-muted">{waitlist.subtitle}</p>
+        </Card>
+        <Card className="p-6 sm:p-8">
           <Suspense fallback={null}>
             <WaitlistForm />
           </Suspense>

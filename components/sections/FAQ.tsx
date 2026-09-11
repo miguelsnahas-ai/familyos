@@ -4,14 +4,10 @@ import { faq } from "@/content";
 
 export function FAQ() {
   return (
-    <section className="py-20 sm:py-28">
-      <Container className="max-w-[700px]">
-        <h2 className="font-serif text-[1.75rem] italic text-ink sm:text-heading-lg">
-          {faq.title}
-        </h2>
-        <div className="mt-10">
-          <Accordion items={faq.items} />
-        </div>
+    <section className="py-16">
+      <Container className="max-w-[700px] flex flex-col gap-6">
+        <h2 className="text-title text-ink">{faq.title}</h2>
+        <Accordion items={faq.items} />
       </Container>
     </section>
   );

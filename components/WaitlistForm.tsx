@@ -189,7 +189,7 @@ export function WaitlistForm() {
             />
           )}
           {errors.painPointOther && (
-            <p role="alert" className="text-[13px] text-accent-dark">
+            <p role="alert" className="text-[13px] text-attention">
               {errors.painPointOther.message}
             </p>
           )}

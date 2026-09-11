@@ -20,7 +20,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
         return (
           <div
             key={item.question}
-            className="rounded-[var(--radius-card)] bg-surface shadow-[var(--shadow-hairline)]"
+            className="rounded-card bg-surface border border-border"
           >
             <h3>
               <button
@@ -35,7 +35,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "shrink-0 text-muted transition-transform duration-200",
+                    "shrink-0 text-ink-faint transition-transform duration-200",
                     isOpen && "rotate-45",
                   )}
                 >
@@ -48,7 +48,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
               role="region"
               aria-labelledby={buttonId}
               hidden={!isOpen}
-              className="px-5 pb-4 text-[15px] text-body-brown"
+              className="px-5 pb-4 text-[15px] text-ink-soft"
             >
               {item.answer}
             </div>

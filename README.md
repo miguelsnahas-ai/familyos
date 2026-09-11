@@ -1,8 +1,10 @@
-# Family OS — Landing page
+# Quintal — Landing page
 
-Landing de smoke test para o Family OS: waitlist com formulário de qualificação,
-email de confirmação e analytics para testar as 3 hipóteses de demanda (ver
-prompt original do produto).
+Landing de smoke test para o Quintal (produto anteriormente chamado Family
+OS): waitlist com formulário de qualificação, email de confirmação e
+analytics para testar as 3 hipóteses de demanda (ver prompt original do
+produto). Design system: Quintal Design System (peach/plum/lilac/clay/
+butter, Gabarito + Hanken Grotesk + JetBrains Mono).
 
 ## Stack
 

@@ -1,49 +1,81 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   Family OS — design tokens
-   Warm, calm palette (linen / near-black / single terracotta accent)
-   built on the structural system from DESIGN.md (hairline borders,
-   generous radius scale, pill buttons, type scale, spacing scale).
+   Quintal — design tokens
+   Ported from the Quintal Design System (tokens/*.css, readme.md).
+   Peach ground, plum ink, one bright action (butter), lilac as the
+   family's own voice, clay as a small accent. No gradients.
 ----------------------------------------------------------------- */
 
 @theme {
-  /* Colors */
-  --color-canvas: #f5f1ea; /* page background — warm linen, never pure white */
-  --color-surface: #fbf9f4; /* card / surface tone, slightly lighter than canvas */
-  --color-stone: #eee9de; /* secondary block background */
-  --color-ink: #1a1815; /* headings, primary text — near-black, warm */
-  --color-body-brown: #4a453e; /* body copy */
-  --color-muted: #6e6a62; /* helper / muted text */
-  --color-border: #e3d9c8; /* hairline inset borders */
-  --color-accent: #b8583d; /* dusty terracotta — the one accent */
-  --color-accent-dark: #9a4732; /* accent hover/active */
-  --color-accent-tint: #f1ddd4; /* accent wash for badges/highlights */
-  --color-success: #6f8f6a; /* muted sage for success states only */
+  /* Brand colors */
+  --color-canvas: #fdf2ec; /* pessego — page background, never pure white */
+  --color-cream: #fdf2ec; /* same value as canvas — used for text on dark surfaces */
+  --color-cream-muted: #ddd2e4; /* muted text on dark surfaces */
+  --color-ink: #3a2c43; /* ameixa — primary text + the one dark surface */
+  --color-ink-soft: #574863; /* secondary text */
+  --color-ink-faint: #786785; /* tertiary / helper text */
+  --color-lilac: #c9b6e4; /* lilas — calm, sleep, the family's own voice */
+  --color-clay: #e0836c; /* barro — small accents, pillar icons, links */
+  --color-butter: #fbd87f; /* manteiga — the single CTA color */
+  --color-surface: #ffffff; /* white cards */
+  --color-tinted: #f6e9e1; /* chip / grouped-block background */
+  --color-border: #ebd9cf;
+  --color-border-strong: #d9c6ce;
+  --color-link: #a3543f;
+  --color-positive: #2f7d5b;
+  --color-attention: #c1553d;
 
   /* Fonts */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-gabarito), var(--font-hanken), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
 
-  /* Type scale */
-  --text-micro: 0.75rem;
-  --text-caption: 0.9375rem;
-  --text-body: 1.0625rem;
-  --text-subheading: 1.1875rem;
-  --text-heading: 1.4375rem;
-  --text-heading-lg: 2.75rem;
-  --text-display: 3.5rem;
+  /* Type scale — mirrors tokens/typography.css exactly */
+  --text-display: clamp(48px, 8vw, 84px);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.035em;
+  --text-display--font-weight: 900;
+
+  --text-title: 32px;
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.02em;
+  --text-title--font-weight: 700;
+
+  --text-subtitle: 20px;
+  --text-subtitle--line-height: 1.25;
+  --text-subtitle--font-weight: 700;
+
+  --text-body-lg: 19px;
+  --text-body-lg--line-height: 1.6;
+
+  --text-body: 15px;
+  --text-body--line-height: 1.65;
+
+  --text-small: 13px;
+  --text-small--line-height: 1.55;
+
+  --text-label: 13px;
+  --text-label--font-weight: 600;
+  --text-label--letter-spacing: 0.02em;
+
+  --text-eyebrow: 11px;
+  --text-eyebrow--font-weight: 500;
+  --text-eyebrow--letter-spacing: 0.16em;
 
   /* Radius */
-  --radius-sm: 2px;
-  --radius-md: 6px;
-  --radius-card: 10px;
-  --radius-illustration: 40px;
-  --radius-pill: 9999px;
+  --radius-field: 8px;
+  --radius-card: 14px;
+  --radius-block: 20px;
 
-  /* Shadows — hairline only, no heavy elevation */
-  --shadow-hairline: inset 0 0 0 1px var(--color-border);
-  --shadow-soft: 0 1px 6px 0 rgba(26, 24, 21, 0.04), 0 0 20px 0 rgba(26, 24, 21, 0.03);
+  /* Shadows — sm by default, md on hover only */
+  --shadow-q-sm: 0 1px 2px rgba(58, 44, 67, 0.07);
+  --shadow-q-md: 0 10px 28px rgba(58, 44, 67, 0.12);
+}
+
+:root {
+  --focus-ring: 0 0 0 2px rgba(224, 131, 108, 0.45);
+  --easing: cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,19 +90,36 @@ html {
 
 body {
   background: var(--color-canvas);
-  color: var(--color-body-brown);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: var(--text-body);
-  line-height: 1.6;
+  line-height: var(--text-body--line-height);
   -webkit-font-smoothing: antialiased;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
 ::selection {
-  background: var(--color-accent-tint);
+  background: var(--color-lilac);
   color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--text-eyebrow--font-weight);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
 }

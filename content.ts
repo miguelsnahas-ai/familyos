@@ -2,7 +2,7 @@
 // iteração de texto sem mexer em componentes.
 
 export const hero = {
-  eyebrow: "Family OS",
+  eyebrow: "Para famílias com crianças de 0 a 6 anos",
   headline: "O copiloto da sua família para uma infância mais saudável.",
   subheadline:
     "Sono, rotina e brincar sem carregar tudo na cabeça. Um copiloto de parentalidade no WhatsApp que transforma o que você já sabe em pequenas decisões práticas do dia a dia.",
@@ -42,7 +42,8 @@ export const bigIdea = {
 
 export type Pillar = {
   id: "sono" | "rotina" | "brincar" | "desenvolvimento";
-  marker: string;
+  index: string;
+  icon: "moon" | "clock" | "sparkle" | "blocks";
   title: string;
   description: string;
   example: string;
@@ -51,21 +52,24 @@ export type Pillar = {
 export const pillars: Pillar[] = [
   {
     id: "sono",
-    marker: "🌙",
+    index: "01",
+    icon: "moon",
     title: "Sono",
     description: "Ajuda a entender e organizar padrões, sem virar \"polícia do sono\".",
     example: "A Laura dormiu 40 minutos a menos. Vamos adaptar o restante do dia.",
   },
   {
     id: "rotina",
-    marker: "◐",
+    index: "02",
+    icon: "clock",
     title: "Rotina",
     description: "Blocos e ritmos, não agenda rígida. Adapta ao dia real.",
     example: "Manhã pesada? Aqui está uma tarde mais leve.",
   },
   {
     id: "brincar",
-    marker: "✳",
+    index: "03",
+    icon: "sparkle",
     title: "Livre brincar",
     description:
       "Cria oportunidades para a criança brincar com autonomia, sem lista de atividades educativas.",
@@ -73,7 +77,8 @@ export const pillars: Pillar[] = [
   },
   {
     id: "desenvolvimento",
-    marker: "◆",
+    index: "04",
+    icon: "blocks",
     title: "Desenvolvimento",
     description: "Organiza conhecimento por idade em oportunidades cotidianas de brincar.",
     example: "Nesta fase, ele pode explorar coordenação. Aqui vão 3 formas simples.",
@@ -84,27 +89,19 @@ export const howItWorks = {
   title: "Como funciona",
   steps: [
     {
-      number: "1",
+      number: "01",
       title: "Você conta.",
       detail: "O sistema entende o momento.",
-      chat: [{ from: "parent" as const, text: "Laura acabou de acordar." }],
     },
     {
-      number: "2",
+      number: "02",
       title: "O sistema aprende.",
       detail: "Registra padrões de sono, brincadeiras recentes, interesses da criança.",
-      chat: [{ from: "system" as const, text: "Anotado. Atualizando o perfil da Laura." }],
     },
     {
-      number: "3",
+      number: "03",
       title: "Você recebe sugestões.",
       detail: "Pequenas decisões, no momento em que você precisa delas.",
-      chat: [
-        {
-          from: "system" as const,
-          text: "20 minutos livres agora? Tenta caixa + 3 objetos, ela vai explorar sozinha.",
-        },
-      ],
     },
   ],
   closing: "Sem app novo. Sem aprender ferramenta. É só WhatsApp.",
@@ -123,7 +120,7 @@ export const childProfile = {
 };
 
 export const whatItIsNot = {
-  title: "O que o Family OS não é",
+  title: "O que o Quintal não é",
   items: [
     "Não substitui pediatra, psicólogo ou nutricionista.",
     "Não faz diagnóstico.",
@@ -225,10 +222,10 @@ export const thankYou = {
 };
 
 export const footer = {
-  name: "Family OS",
+  name: "Quintal",
   tagline: "Um copiloto de parentalidade no WhatsApp.",
-  email: "ola@familyos.com.br",
-  instagram: "https://instagram.com/familyos",
+  email: "ola@quintal.com.br",
+  instagram: "https://instagram.com/quintal",
   privacy: "/privacidade",
   terms: "/termos",
 };

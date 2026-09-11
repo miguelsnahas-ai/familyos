@@ -4,7 +4,7 @@ import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { footer } from "@/content";
 
-export const metadata: Metadata = { title: "Termos — Family OS" };
+export const metadata: Metadata = { title: "Termos — Quintal" };
 
 export default function TermosPage() {
   return (
@@ -12,16 +12,16 @@ export default function TermosPage() {
       <Nav />
       <main className="flex-1 py-20">
         <Container className="max-w-[680px]">
-          <h1 className="font-serif text-[2rem] italic text-ink">Termos de uso</h1>
-          <div className="mt-8 flex flex-col gap-5 text-[16px] leading-relaxed text-body-brown">
+          <h1 className="text-title text-ink">Termos de uso</h1>
+          <div className="mt-8 flex flex-col gap-5 text-[16px] leading-relaxed text-ink-soft">
             <p>
-              O Family OS está em fase de validação. Ao entrar na lista de espera, você
+              O Quintal está em fase de validação. Ao entrar na lista de espera, você
               concorda em ser contatado(a) por email e WhatsApp sobre o desenvolvimento
               do produto, condições de acesso antecipado e, eventualmente, sobre o
               serviço Family Setup.
             </p>
             <p>
-              O Family OS não substitui orientação médica, psicológica ou nutricional.
+              O Quintal não substitui orientação médica, psicológica ou nutricional.
               As sugestões oferecidas são de caráter informativo e não configuram
               diagnóstico ou tratamento.
             </p>
@@ -31,7 +31,7 @@ export default function TermosPage() {
             </p>
             <p>
               Dúvidas? Escreva para{" "}
-              <a className="text-accent-dark underline" href={`mailto:${footer.email}`}>
+              <a className="text-link hover:text-clay underline" href={`mailto:${footer.email}`}>
                 {footer.email}
               </a>
               .

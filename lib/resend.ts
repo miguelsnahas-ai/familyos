@@ -3,7 +3,7 @@ import { Resend } from "resend";
 function confirmationEmailHtml(name: string) {
   const firstName = name.trim().split(" ")[0] || name;
   return `
-    <div style="font-family: Georgia, 'Times New Roman', serif; max-width: 480px; margin: 0 auto; padding: 32px 24px; color: #1a1815; background: #f5f1ea;">
+    <div style="font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px 24px; color: #3A2C43; background: #FDF2EC;">
       <p style="font-size: 17px; line-height: 1.6;">Oi, ${firstName}.</p>
       <p style="font-size: 17px; line-height: 1.6;">
         Bem-vinda à lista. Vamos te contar tudo pelas próximas semanas —
@@ -14,7 +14,7 @@ function confirmationEmailHtml(name: string) {
       </p>
       <p style="font-size: 17px; line-height: 1.6; margin-top: 32px;">
         Um abraço,<br />
-        Fundador(a) do Family OS
+        Fundador(a) do Quintal
       </p>
     </div>
   `;
@@ -33,7 +33,7 @@ export async function sendConfirmationEmail(to: string, name: string) {
   return resend.emails.send({
     from,
     to,
-    subject: "Você está na lista do Family OS",
+    subject: "Você está na lista do Quintal",
     html: confirmationEmailHtml(name),
   });
 }

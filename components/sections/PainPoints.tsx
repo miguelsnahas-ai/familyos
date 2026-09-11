@@ -1,26 +1,18 @@
 import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
+import { Chip } from "@/components/ui/Chip";
 import { painPoints } from "@/content";
 
 export function PainPoints() {
   return (
-    <section className="bg-stone py-20 sm:py-28">
-      <Container>
-        <h2 className="max-w-[26ch] font-serif text-[1.75rem] italic leading-tight text-ink sm:text-heading-lg">
-          {painPoints.title}
-        </h2>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="py-16">
+      <Container className="flex flex-col gap-5">
+        <h2 className="text-title text-ink max-w-[26ch]">{painPoints.title}</h2>
+        <div className="flex flex-wrap gap-2.5">
           {painPoints.quotes.map((quote) => (
-            <Card key={quote} className="bg-surface">
-              <p className="font-serif text-[19px] italic leading-snug text-ink">
-                &ldquo;{quote}&rdquo;
-              </p>
-            </Card>
+            <Chip key={quote}>{quote}</Chip>
           ))}
         </div>
-        <p className="mt-10 max-w-[48ch] text-[17px] font-medium text-ink">
-          {painPoints.closing}
-        </p>
+        <p className="max-w-[62ch] text-body-lg text-ink-soft">{painPoints.closing}</p>
       </Container>
     </section>
   );

@@ -16,12 +16,12 @@ export function Field({
 }) {
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
-      <label htmlFor={htmlFor} className="text-[14px] font-medium text-ink">
+      <label htmlFor={htmlFor} className="text-label font-semibold text-ink">
         {label}
       </label>
       {children}
       {error && (
-        <p role="alert" className="text-[13px] text-accent-dark">
+        <p role="alert" className="text-[13px] text-attention">
           {error}
         </p>
       )}

@@ -4,7 +4,7 @@ import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { footer } from "@/content";
 
-export const metadata: Metadata = { title: "Privacidade — Family OS" };
+export const metadata: Metadata = { title: "Privacidade — Quintal" };
 
 export default function PrivacidadePage() {
   return (
@@ -12,10 +12,10 @@ export default function PrivacidadePage() {
       <Nav />
       <main className="flex-1 py-20">
         <Container className="max-w-[680px]">
-          <h1 className="font-serif text-[2rem] italic text-ink">Política de privacidade</h1>
-          <div className="mt-8 flex flex-col gap-5 text-[16px] leading-relaxed text-body-brown">
+          <h1 className="text-title text-ink">Política de privacidade</h1>
+          <div className="mt-8 flex flex-col gap-5 text-[16px] leading-relaxed text-ink-soft">
             <p>
-              O Family OS coleta apenas os dados que você nos entrega diretamente pelo
+              O Quintal coleta apenas os dados que você nos entrega diretamente pelo
               formulário de lista de espera: nome, email, WhatsApp e as respostas sobre a
               rotina da sua família. Usamos esses dados para entrar em contato sobre o
               produto e para entender melhor as necessidades das famílias interessadas.
@@ -29,9 +29,9 @@ export default function PrivacidadePage() {
             </p>
             <p>
               Você pode pedir a exclusão dos seus dados a qualquer momento escrevendo
-              para <a className="text-accent-dark underline" href={`mailto:${footer.email}`}>{footer.email}</a>.
+              para <a className="text-link hover:text-clay underline" href={`mailto:${footer.email}`}>{footer.email}</a>.
             </p>
-            <p className="text-[13px] text-muted">
+            <p className="text-[13px] text-ink-faint">
               Este é um documento provisório enquanto o produto está em fase de
               validação. Uma versão completa será publicada antes do lançamento
               comercial.

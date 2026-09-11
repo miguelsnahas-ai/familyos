@@ -6,7 +6,7 @@ import { Footer } from "@/components/sections/Footer";
 import { thankYou } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Você está na lista — Family OS",
+  title: "Você está na lista — Quintal",
   robots: { index: false, follow: false },
 };
 
@@ -18,23 +18,19 @@ export default function ObrigadoPage() {
       <Nav />
       <main className="flex flex-1 items-center py-24">
         <Container className="max-w-[560px] text-center sm:text-left">
-          <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-accent-dark">
-            Cadastro confirmado
-          </p>
-          <h1 className="mt-3 font-serif text-[2rem] italic leading-tight text-ink sm:text-heading-lg">
-            {thankYou.title}
-          </h1>
-          <p className="mt-4 text-[17px] leading-relaxed text-body-brown">{thankYou.message}</p>
+          <p className="eyebrow">Cadastro confirmado</p>
+          <h1 className="mt-3 text-title text-ink">{thankYou.title}</h1>
+          <p className="mt-4 text-body-lg text-ink-soft">{thankYou.message}</p>
 
-          <div className="mt-10 rounded-[var(--radius-card)] bg-stone p-6">
-            <h2 className="text-heading font-medium text-ink">{thankYou.helpTitle}</h2>
-            <p className="mt-1 text-[15px] text-body-brown">{thankYou.helpMessage}</p>
+          <div className="mt-10 rounded-card bg-tinted p-6">
+            <h2 className="font-display font-bold text-[19px] text-ink">{thankYou.helpTitle}</h2>
+            <p className="mt-1 text-[15px] text-ink-soft">{thankYou.helpMessage}</p>
             {calendlyUrl && (
               <a
                 href={calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-[14px] font-medium text-canvas transition-colors hover:bg-accent-dark"
+                className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-butter px-6 py-3 text-[14px] font-bold text-ink transition-[filter] hover:brightness-95"
               >
                 {thankYou.calendlyCta}
               </a>
@@ -43,7 +39,7 @@ export default function ObrigadoPage() {
 
           <Link
             href="/"
-            className="mt-8 inline-block text-[14px] font-medium text-ink underline decoration-border underline-offset-4 hover:text-accent-dark"
+            className="mt-8 inline-block text-[14px] font-semibold text-link hover:text-clay"
           >
             {thankYou.backHome}
           </Link>

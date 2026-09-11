@@ -1,27 +1,29 @@
 import { Container } from "@/components/ui/Container";
-import { ChatMockup } from "@/components/ChatMockup";
+import { Card } from "@/components/ui/Card";
+import { ChalkMark } from "@/components/ui/ChalkMark";
 import { howItWorks } from "@/content";
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-20 sm:py-28">
+    <section id="como-funciona" className="py-16">
       <Container>
-        <h2 className="font-serif text-[1.75rem] italic text-ink sm:text-heading-lg">
-          {howItWorks.title}
-        </h2>
-        <div className="mt-10 grid gap-8 lg:grid-cols-3">
+        <Card tone="dark" className="p-9 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-col gap-3.5">
+            <h2 className="text-[30px] font-bold font-display text-cream">{howItWorks.title}</h2>
+            <ChalkMark mark="wave" color="var(--color-lilac)" scale={0.9} />
+          </div>
           {howItWorks.steps.map((step) => (
-            <div key={step.number} className="flex flex-col items-start gap-4">
-              <ChatMockup messages={step.chat} className="max-w-[320px]" />
-              <div>
-                <p className="text-[13px] font-medium text-accent-dark">Passo {step.number}</p>
-                <h3 className="mt-1 text-heading font-medium text-ink">{step.title}</h3>
-                <p className="mt-1 text-[15px] text-body-brown">{step.detail}</p>
-              </div>
+            <div key={step.number} className="flex gap-3.5">
+              <span className="font-display font-black text-[34px] leading-none text-butter">
+                {step.number}
+              </span>
+              <span className="flex flex-col gap-1">
+                <span className="font-display font-bold text-[19px] text-cream">{step.title}</span>
+                <span className="text-[14px] leading-snug text-cream-muted">{step.detail}</span>
+              </span>
             </div>
           ))}
-        </div>
-        <p className="mt-12 text-[17px] font-medium text-ink">{howItWorks.closing}</p>
+        </Card>
       </Container>
     </section>
   );

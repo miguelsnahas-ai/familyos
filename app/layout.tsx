@@ -1,41 +1,49 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Gabarito, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const gabarito = Gabarito({
+  variable: "--font-gabarito",
   subsets: ["latin"],
+  weight: ["500", "700", "900"],
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://familyos.vercel.app";
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://quintal.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Family OS — o copiloto da sua família para uma infância mais saudável",
+  title: "Quintal — o copiloto da sua família para uma infância mais saudável",
   description:
     "Sono, rotina e brincar sem carregar tudo na cabeça. Um copiloto de parentalidade no WhatsApp para pais de crianças de 0 a 6 anos. Estamos abrindo as primeiras 100 famílias.",
   openGraph: {
-    title: "Family OS — o copiloto da sua família para uma infância mais saudável",
+    title: "Quintal — o copiloto da sua família para uma infância mais saudável",
     description:
       "Sono, rotina e brincar sem carregar tudo na cabeça. Um copiloto de parentalidade no WhatsApp para pais de crianças de 0 a 6 anos.",
     url: siteUrl,
-    siteName: "Family OS",
+    siteName: "Quintal",
     locale: "pt_BR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Family OS — o copiloto da sua família",
+    title: "Quintal — o copiloto da sua família",
     description: "Sono, rotina e brincar sem carregar tudo na cabeça. No WhatsApp.",
   },
 };
@@ -43,7 +51,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f5f1ea",
+  themeColor: "#fdf2ec",
 };
 
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
@@ -54,9 +62,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="pt-BR"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${fraunces.variable} h-full`}
+      className={`${gabarito.variable} ${hanken.variable} ${jetbrainsMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-canvas text-body-brown antialiased">
+      <body className="min-h-full flex flex-col bg-canvas text-ink antialiased">
         {children}
         <Analytics />
         {plausibleDomain && (

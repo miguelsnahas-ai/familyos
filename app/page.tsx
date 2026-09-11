@@ -11,10 +11,12 @@ import { WaitlistSection } from "@/components/sections/WaitlistSection";
 import { FAQ } from "@/components/sections/FAQ";
 import { Footer } from "@/components/sections/Footer";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
+import { ChalkDefs } from "@/components/ui/ChalkMark";
 
 export default function Home() {
   return (
     <>
+      <ChalkDefs />
       <AnalyticsEvents />
       <Nav />
       <main className="flex-1">
