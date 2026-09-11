@@ -20,14 +20,6 @@ export const professionalsValues = [
 
 export const yesNoValues = ["sim", "nao"] as const;
 
-export const painPointValues = [
-  "sono-rotina",
-  "tempo-tela",
-  "brincar",
-  "desenvolvimento",
-  "outra",
-] as const;
-
 export const challengesValues = [
   "sono",
   "rotina",
@@ -68,8 +60,7 @@ export const waitlistSchema = z
     courseTaken: z.enum(yesNoValues, { message: "Escolhe uma opção." }),
     courseWhich: z.string().trim().optional(),
     appUsed: z.enum(yesNoValues, { message: "Escolhe uma opção." }),
-    painPoint: z.enum(painPointValues, { message: "Escolhe uma opção." }),
-    painPointOther: z.string().trim().optional(),
+    appWhich: z.string().trim().optional(),
     challenges: z.array(z.enum(challengesValues)).min(1, "Marca ao menos uma opção."),
     challengesOther: z.string().trim().optional(),
     howFound: z.enum(howFoundValues, { message: "Escolhe uma opção." }),
@@ -97,6 +88,10 @@ export const waitlistSchema = z
     message: "Conta pra gente qual curso.",
     path: ["courseWhich"],
   })
+  .refine((data) => data.appUsed !== "sim" || (data.appWhich?.length ?? 0) > 0, {
+    message: "Conta pra gente qual aplicativo.",
+    path: ["appWhich"],
+  })
   .refine((data) => !data.challenges.includes("outra") || (data.challengesOther?.length ?? 0) > 0, {
     message: "Conta pra gente qual.",
     path: ["challengesOther"],
@@ -104,10 +99,6 @@ export const waitlistSchema = z
   .refine((data) => data.howFound !== "outra" || (data.howFoundOther?.length ?? 0) > 0, {
     message: "Conta pra gente onde.",
     path: ["howFoundOther"],
-  })
-  .refine((data) => data.painPoint !== "outra" || (data.painPointOther?.length ?? 0) > 0, {
-    message: "Conta pra gente qual é a dor.",
-    path: ["painPointOther"],
   });
 
 export type WaitlistInput = z.infer<typeof waitlistSchema>;

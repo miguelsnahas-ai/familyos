@@ -43,7 +43,7 @@ export function WaitlistForm() {
       caregiversOther: "",
       professionals: [],
       courseWhich: "",
-      painPointOther: "",
+      appWhich: "",
       challenges: [],
       challengesOther: "",
       howFoundOther: "",
@@ -59,7 +59,7 @@ export function WaitlistForm() {
   const supportNetwork = watch("supportNetwork");
   const caregivers = watch("caregivers");
   const courseTaken = watch("courseTaken");
-  const painPoint = watch("painPoint");
+  const appUsed = watch("appUsed");
   const challenges = watch("challenges");
   const howFound = watch("howFound");
 
@@ -307,34 +307,19 @@ export function WaitlistForm() {
             />
           ))}
         </div>
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.painPoint.label} error={errors.painPoint?.message}>
-        <div className="flex flex-col gap-2.5">
-          {waitlist.fields.painPoint.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`painPoint-${index}`}
-              type="radio"
-              label={option.label}
-              value={option.value}
-              {...register("painPoint")}
-            />
-          ))}
-          {painPoint === "outra" && (
-            <Input
-              placeholder="Qual?"
-              aria-label="Descreva a outra dor"
-              hasError={!!errors.painPointOther}
-              {...register("painPointOther")}
-            />
-          )}
-          {errors.painPointOther && (
-            <p role="alert" className="text-[13px] text-attention">
-              {errors.painPointOther.message}
-            </p>
-          )}
-        </div>
+        {appUsed === "sim" && (
+          <Input
+            placeholder="Qual aplicativo?"
+            aria-label="Qual aplicativo de parentalidade"
+            hasError={!!errors.appWhich}
+            {...register("appWhich")}
+          />
+        )}
+        {errors.appWhich && (
+          <p role="alert" className="text-[13px] text-attention">
+            {errors.appWhich.message}
+          </p>
+        )}
       </FieldGroup>
 
       <FieldGroup legend={waitlist.fields.challenges.label} error={errors.challenges?.message}>

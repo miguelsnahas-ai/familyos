@@ -240,16 +240,6 @@ export const waitlist = {
         { value: "nao", label: "Não" },
       ],
     },
-    painPoint: {
-      label: "Qual dessas dores é mais forte pra você hoje?",
-      options: [
-        { value: "sono-rotina", label: "Sono e rotina" },
-        { value: "tempo-tela", label: "Reduzir tempo de tela" },
-        { value: "brincar", label: "Ideias de brincar sem gastar" },
-        { value: "desenvolvimento", label: "Desenvolvimento infantil" },
-        { value: "outra", label: "Outra" },
-      ],
-    },
     challenges: {
       label: "O que é mais desafiador na rotina de cuidado hoje?",
       options: [
