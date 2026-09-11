@@ -2,9 +2,9 @@
 // iteração de texto sem mexer em componentes.
 
 export const hero = {
-  headline: "O copiloto da sua família para uma infância mais saudável.",
+  headline: "Cuide do seu filho com mais confiança e menos peso.",
   subheadline:
-    "Sono, rotina e brincar sem carregar tudo na cabeça. Um copiloto de parentalidade no WhatsApp que transforma o que você já sabe em pequenas decisões práticas do dia a dia.",
+    "Sono, rotina e brincar sem carregar tudo na cabeça. Um copiloto de parentalidade no WhatsApp que ajuda com as decisões do dia a dia.",
   ctaPrimary: "Entrar na lista de espera",
   ctaSecondary: "Como funciona",
   credibility:
