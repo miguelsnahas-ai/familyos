@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  background: var(--pessego);
+  color: var(--text-primary);
+  font-family: var(--font-text);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-lh);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+a { color: var(--text-link); text-decoration: none; }
+a:hover { color: var(--text-link-hover); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  letter-spacing: var(--type-title-ls);
+  /* Títulos em caixa baixa, sempre. */
+  text-transform: none;
+}
+
+:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+.q-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--type-eyebrow-size);
+  font-weight: var(--type-eyebrow-weight);
+  letter-spacing: var(--type-eyebrow-ls);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}

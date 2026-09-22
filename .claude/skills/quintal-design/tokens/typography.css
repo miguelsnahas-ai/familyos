@@ -1,0 +1,32 @@
+:root {
+  --type-display-size: clamp(48px, 8vw, 84px);
+  --type-display-weight: 900;
+  --type-display-lh: 0.98;
+  --type-display-ls: -0.035em;
+
+  --type-title-size: 32px;
+  --type-title-weight: 700;
+  --type-title-lh: 1.1;
+  --type-title-ls: -0.02em;
+
+  --type-subtitle-size: 20px;
+  --type-subtitle-weight: 700;
+  --type-subtitle-lh: 1.25;
+
+  --type-body-lg-size: 19px;
+  --type-body-lg-lh: 1.6;
+
+  --type-body-size: 15px;
+  --type-body-lh: 1.65;
+
+  --type-small-size: 13px;
+  --type-small-lh: 1.55;
+
+  --type-label-size: 13px;
+  --type-label-weight: 600;
+  --type-label-ls: 0.02em;
+
+  --type-eyebrow-size: 11px;
+  --type-eyebrow-weight: 500;
+  --type-eyebrow-ls: 0.16em;
+}

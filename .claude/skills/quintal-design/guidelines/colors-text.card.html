@@ -1,0 +1,22 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Text & surface" subtitle="Three levels of ink, two surfaces" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:18px;background:var(--pessego);font-family:var(--font-text);color:var(--text-primary);}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;}
+.sw{display:flex;flex-direction:column;gap:6px;width:118px;}
+.chip{height:48px;border-radius:var(--radius-card);}
+.mono{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);}
+.nm{font-family:var(--font-display);font-weight:700;font-size:14px;}</style>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="font-size:15px;font-weight:600;color:var(--text-primary)">Texto primário <span class="mono">#3A2C43</span></div>
+    <div style="font-size:15px;font-weight:600;color:var(--text-secondary)">Texto secundário <span class="mono">#574863</span></div>
+    <div style="font-size:15px;font-weight:600;color:var(--text-tertiary)">Texto terciário <span class="mono">#786785</span></div>
+    <div style="font-size:15px;font-weight:600;color:var(--text-link)">Link <span class="mono">#A3543F</span></div>
+  </div>
+  <div style="display:flex;gap:10px">
+    <div class="sw" style="width:100%"><div class="chip" style="background:var(--surface);border:1px solid var(--border)"></div><div class="mono">surface #FFFFFF</div></div>
+    <div class="sw" style="width:100%"><div class="chip" style="background:var(--surface-tinted);border:1px solid var(--border)"></div><div class="mono">tinted #F6E9E1</div></div>
+    <div class="sw" style="width:100%"><div class="chip" style="background:var(--surface-dark)"></div><div class="mono">dark #3A2C43</div></div>
+  </div>
+</div>

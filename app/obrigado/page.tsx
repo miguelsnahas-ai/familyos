@@ -30,7 +30,7 @@ export default function ObrigadoPage() {
                 href={calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-butter px-6 py-3 text-[14px] font-bold text-ink transition-[filter] hover:brightness-95"
+                className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-butter px-[22px] py-3 text-[14px] font-bold text-ink transition-[filter] hover:brightness-95"
               >
                 {thankYou.calendlyCta}
               </a>

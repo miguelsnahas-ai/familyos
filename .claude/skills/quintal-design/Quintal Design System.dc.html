@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FDF2EC; }
+  a { color: #A3543F; text-decoration: none; }
+  a:hover { color: #E0836C; }
+</style>
+</helmet>
+
+<div style="font-family:'Hanken Grotesk',sans-serif; color:#3A2C43; background:#FDF2EC; padding:clamp(24px,5vw,72px); display:flex; flex-direction:column; gap:72px;">
+
+  <header style="display:flex; flex-direction:column; gap:18px; max-width:760px;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#786785;">Design System · v0.1 · pt-BR</div>
+    <div style="font-family:'Gabarito',sans-serif; font-weight:900; font-size:clamp(48px,8vw,84px); line-height:.98; letter-spacing:-.035em;">Quintal</div>
+    <div style="font-size:clamp(16px,2vw,19px); line-height:1.6; color:#574863; text-wrap:pretty;">O copiloto da sua família para uma infância mais saudável. Este documento define a linguagem visual do produto: confiança para a família, leveza para os pais, alegria para as crianças.</div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:4px;">
+      <span style="background:#FBD87F; color:#3A2C43; font-size:12px; font-weight:700; padding:6px 14px; border-radius:99px;">Confiança</span>
+      <span style="background:#C9B6E4; color:#2E2336; font-size:12px; font-weight:700; padding:6px 14px; border-radius:99px;">Leveza</span>
+      <span style="background:#E0836C; color:#3A2C43; font-size:12px; font-weight:700; padding:6px 14px; border-radius:99px;">Alegria</span>
+    </div>
+  </header>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px solid #EBD9CF; padding-bottom:12px;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#786785;">01</span>
+      <span style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:26px; letter-spacing:-.02em;">Cor</span>
+      <span style="font-size:14px; color:#786785;">Ameixa carrega tudo. Manteiga é a única energia.</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px;">
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="height:120px; border-radius:14px; background:#3A2C43;"></div>
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:15px;">Ameixa</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#786785;">#3A2C43 · --ink</div>
+        <div style="font-size:13px; line-height:1.5; color:#574863;">Todo o texto principal, superfícies escuras, hero.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="height:120px; border-radius:14px; background:#FDF2EC; border:1px solid #EBD9CF;"></div>
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:15px;">Pêssego</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#786785;">#FDF2EC · --bg</div>
+        <div style="font-size:13px; line-height:1.5; color:#574863;">Fundo padrão de todas as telas. Nunca branco puro em página cheia.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="height:120px; border-radius:14px; background:#C9B6E4; flex:0 0 auto;"></div>
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:15px;">Lilás</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#786785;">#C9B6E4 · --calm</div>
+        <div style="font-size:13px; line-height:1.5; color:#574863;">Sono, descanso, mensagens da família. Texto sobre lilás é sempre ameixa.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="height:120px; border-radius:14px; background:#E0836C;"></div>
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:15px;">Barro</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#786785;">#E0836C · --accent</div>
+        <div style="font-size:13px; line-height:1.5; color:#574863;">Eyebrows, ícones de pilar, links. Só em elementos pequenos.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="height:120px; border-radius:14px; background:#FBD87F;"></div>
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:15px;">Manteiga</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#786785;">#FBD87F · --cta</div>
+        <div style="font-size:13px; line-height:1.5; color:#574863;">Uma ação primária por tela. Texto sobre manteiga é sempre ameixa.</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; padding-top:8px;">
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Texto e superfície</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px;"><span style="color:#3A2C43; font-weight:600;">Texto primário</span><span style="font-family:'JetBrains Mono',monospace; color:#786785;">#3A2C43</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px;"><span style="color:#574863; font-weight:600;">Texto secundário</span><span style="font-family:'JetBrains Mono',monospace; color:#786785;">#574863</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px;"><span style="color:#786785; font-weight:600;">Texto terciário</span><span style="font-family:'JetBrains Mono',monospace; color:#786785;">#786785</span></div>
+          <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px;"><span style="font-weight:600;">Superfície / borda</span><span style="font-family:'JetBrains Mono',monospace; color:#786785;">#FFFFFF · #EBD9CF</span></div>
+        </div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Estados</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:12px; height:12px; border-radius:99px; background:#2F7D5B;"></span><span style="font-weight:600;">Positivo</span><span style="font-family:'JetBrains Mono',monospace; color:#786785; margin-left:auto;">#2F7D5B</span></div>
+          <div style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:12px; height:12px; border-radius:99px; background:#C1553D;"></span><span style="font-weight:600;">Atenção</span><span style="font-family:'JetBrains Mono',monospace; color:#786785; margin-left:auto;">#C1553D</span></div>
+          <div style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:12px; height:12px; border-radius:99px; background:#C9B6E4;"></span><span style="font-weight:600;">Em repouso</span><span style="font-family:'JetBrains Mono',monospace; color:#786785; margin-left:auto;">#C9B6E4</span></div>
+        </div>
+        <div style="font-size:12px; line-height:1.5; color:#786785;">Nada de vermelho de alarme. O produto nunca repreende os pais.</div>
+      </div>
+      <div style="background:#3A2C43; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#B9A6C4;">Regra de contraste</div>
+        <div style="font-size:13px; line-height:1.6; color:#EDE4F0;">Texto sobre manteiga e sobre lilás é sempre ameixa — branco sobre esses tons reprova em AA. Sobre ameixa, use #FDF2EC ou #DDD2E4.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px solid #EBD9CF; padding-bottom:12px;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#786785;">02</span>
+      <span style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:26px; letter-spacing:-.02em;">Tipografia</span>
+      <span style="font-size:14px; color:#786785;">Gabarito para títulos · Hanken Grotesk para tudo mais</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Display · Gabarito 900 · 64/0.98 · -3.5%</div>
+          <div style="font-family:'Gabarito',sans-serif; font-weight:900; font-size:56px; line-height:.98; letter-spacing:-.035em;">Uma infância mais leve.</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Título · Gabarito 700 · 32/1.1 · -2%</div>
+          <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:32px; line-height:1.1; letter-spacing:-.02em;">Os quatro pilares</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Subtítulo · Gabarito 700 · 20/1.25</div>
+          <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:20px; line-height:1.25;">Você conta. O sistema entende o momento.</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Corpo grande · Hanken 400 · 19/1.6</div>
+          <div style="font-size:19px; line-height:1.6; color:#574863;">Sono, rotina e brincar sem carregar tudo na cabeça. Um copiloto de parentalidade no WhatsApp.</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Corpo · Hanken 400 · 15/1.65</div>
+          <div style="font-size:15px; line-height:1.65; color:#574863;">Em vez de 50 atividades para estimular, uma brincadeira simples que permite que ele explore sozinho. Em vez de uma rotina perfeita, uma adaptada ao dia que vocês estão vivendo.</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Rótulo · Hanken 600 · 13/1.4 · +2%</div>
+          <div style="font-size:13px; font-weight:600; letter-spacing:.02em;">Brincadeira recente</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Eyebrow · JetBrains Mono 500 · 11 · +16% · caixa alta</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:#E0836C;">Passo 01 — você conta</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:18px; font-size:14px; line-height:1.6; color:#574863; max-width:820px;">
+      Títulos em caixa baixa, sempre. O Gabarito já tem personalidade suficiente; caixa alta endurece a marca e contraria a leveza. Frases curtas e afirmativas, com ponto final.
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px solid #EBD9CF; padding-bottom:12px;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#786785;">03</span>
+      <span style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:26px; letter-spacing:-.02em;">Espaço e forma</span>
+      <span style="font-size:14px; color:#786785;">Base 4px · cantos generosos · sombra quase nula</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px;">
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Escala de espaço</div>
+        <div style="display:flex; flex-wrap:wrap; align-items:flex-end; gap:8px;">
+          <div style="width:4px; height:4px; background:#C9B6E4; flex:0 0 auto;"></div>
+          <div style="width:8px; height:8px; background:#C9B6E4; flex:0 0 auto;"></div>
+          <div style="width:12px; height:12px; background:#C9B6E4; flex:0 0 auto;"></div>
+          <div style="width:16px; height:16px; background:#C9B6E4; flex:0 0 auto;"></div>
+          <div style="width:24px; height:24px; background:#C9B6E4; flex:0 0 auto;"></div>
+          <div style="width:32px; height:32px; background:#C9B6E4; flex:0 0 auto;"></div>
+          <div style="width:48px; height:48px; background:#C9B6E4; flex:0 0 auto;"></div>
+          <div style="width:64px; height:64px; background:#C9B6E4; flex:0 0 auto;"></div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#786785;">4 · 8 · 12 · 16 · 24 · 32 · 48 · 64</div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Raios</div>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px;">
+          <div style="flex:0 0 auto; width:56px; height:56px; background:#FDF2EC; border:1px solid #EBD9CF; border-radius:8px;"></div>
+          <div style="flex:0 0 auto; width:56px; height:56px; background:#FDF2EC; border:1px solid #EBD9CF; border-radius:14px;"></div>
+          <div style="flex:0 0 auto; width:56px; height:56px; background:#FDF2EC; border:1px solid #EBD9CF; border-radius:20px;"></div>
+          <div style="flex:0 0 auto; width:80px; height:40px; background:#FDF2EC; border:1px solid #EBD9CF; border-radius:99px;"></div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#786785;">8 campo · 14 card · 20 bloco · 999 pílula</div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Elevação</div>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:14px;">
+          <div style="flex:0 0 auto; width:72px; height:56px; background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px;"></div>
+          <div style="flex:0 0 auto; width:72px; height:56px; background:#FFFFFF; border-radius:14px; box-shadow:0 1px 2px rgba(58,44,67,.07);"></div>
+          <div style="flex:0 0 auto; width:72px; height:56px; background:#FFFFFF; border-radius:14px; box-shadow:0 10px 28px rgba(58,44,67,.12);"></div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; line-height:1.6; color:#786785;">flat · sm 0 1px 2px · md 0 10px 28px</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px solid #EBD9CF; padding-bottom:12px;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#786785;">04</span>
+      <span style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:26px; letter-spacing:-.02em;">Componentes</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px;">
+
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Botões · altura 44px</div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <button style="background:#FBD87F; color:#3A2C43; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:700; padding:12px 22px; border:none; border-radius:99px; cursor:pointer; transition:filter .15s ease-out, transform .15s ease-out;" style-hover="filter:brightness(.95)" style-active="transform:translateY(1px)">Entrar na lista</button>
+          <button style="background:transparent; color:#3A2C43; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; padding:12px 22px; border:1px solid #D9C6CE; border-radius:99px; cursor:pointer; transition:background .15s ease-out;" style-hover="background:#F6E9E1">Como funciona</button>
+          <button style="background:transparent; color:#A3543F; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; padding:12px 14px; border:none; border-radius:99px; cursor:pointer;" style-hover="color:#E0836C">Saber mais →</button>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; background:#3A2C43; padding:16px; border-radius:14px;">
+          <button style="background:#FBD87F; color:#3A2C43; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:700; padding:12px 22px; border:none; border-radius:99px; cursor:pointer;">Entrar na lista</button>
+          <button style="background:transparent; color:#FDF2EC; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; padding:12px 22px; border:1px solid #7A6A83; border-radius:99px; cursor:pointer;">Como funciona</button>
+        </div>
+        <div style="font-size:12px; line-height:1.5; color:#786785;">Foco: anel de 2px em barro (#E0836C) com 2px de folga. Nunca removido.</div>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Campo e seleção</div>
+        <label style="display:flex; flex-direction:column; gap:6px;">
+          <span style="font-size:13px; font-weight:600;">Seu WhatsApp</span>
+          <input type="text" placeholder="(11) 99999-9999" style="font-family:'Hanken Grotesk',sans-serif; font-size:15px; color:#3A2C43; background:#FDF2EC; border:1px solid #EBD9CF; border-radius:8px; padding:12px 14px; outline:none;" style-focus="border-color:#E0836C; box-shadow:0 0 0 2px rgba(224,131,108,.35)">
+        </label>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="background:#C9B6E4; color:#2E2336; font-size:12px; font-weight:600; padding:6px 12px; border-radius:99px;">Sono</span>
+          <span style="background:#F6E9E1; color:#574863; font-size:12px; font-weight:600; padding:6px 12px; border-radius:99px;">Rotina</span>
+          <span style="background:#F6E9E1; color:#574863; font-size:12px; font-weight:600; padding:6px 12px; border-radius:99px;">Livre brincar</span>
+          <span style="background:#F6E9E1; color:#574863; font-size:12px; font-weight:600; padding:6px 12px; border-radius:99px;">Desenvolvimento</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:13px; color:#574863;">
+          <span style="width:40px; height:24px; background:#2F7D5B; border-radius:99px; position:relative; display:inline-block;"><span style="position:absolute; top:3px; left:19px; width:18px; height:18px; background:#FFFFFF; border-radius:99px;"></span></span>
+          Receber sugestões pela manhã
+        </div>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Conversa</div>
+        <div style="background:#FDF2EC; border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px; padding-bottom:6px;">
+            <span style="width:28px; height:28px; border-radius:99px; background:#3A2C43; color:#FBD87F; font-family:'Gabarito',sans-serif; font-weight:900; font-size:12px; display:flex; align-items:center; justify-content:center;">Q</span>
+            <span style="font-size:13px; font-weight:600;">Quintal</span>
+            <span style="font-size:12px; color:#2F7D5B;">online</span>
+          </div>
+          <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:16px 16px 16px 4px; padding:11px 14px; font-size:14px; line-height:1.5; max-width:86%;">A Laura dormiu 40 minutos a menos hoje. Vamos deixar a tarde mais leve — nada de estímulo pesado até o almoço.</div>
+          <div style="align-self:flex-end; background:#C9B6E4; border-radius:16px 16px 4px 16px; padding:11px 14px; font-size:14px; color:#2E2336;">Perfeito, obrigada</div>
+        </div>
+        <div style="font-size:12px; line-height:1.5; color:#786785;">Bolha do sistema em branco, da família em lilás. Rabo de 4px sempre no lado do emissor.</div>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Card de pilar</div>
+        <div style="border:1px solid #EBD9CF; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:8px; transition:box-shadow .18s ease-out, transform .18s ease-out;" style-hover="box-shadow:0 10px 28px rgba(58,44,67,.12); transform:translateY(-2px)">
+          <span style="width:34px; height:34px; border-radius:99px; background:#C9B6E4; display:flex; align-items:center; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A2C43" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+          </span>
+          <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:20px;">Sono</div>
+          <div style="font-size:14px; line-height:1.55; color:#574863;">Ajuda a entender e organizar padrões, sem virar polícia do sono.</div>
+          <div style="background:#FDF2EC; border-radius:10px; padding:10px 12px; font-size:13px; line-height:1.5; color:#574863;">A Laura dormiu 40 minutos a menos. Vamos adaptar o restante do dia.</div>
+        </div>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Perfil da criança</div>
+        <div style="border:1px solid #EBD9CF; border-radius:14px; overflow:hidden;">
+          <div style="background:#3A2C43; padding:16px; display:flex; align-items:center; gap:12px;">
+            <span style="width:42px; height:42px; border-radius:99px; background:#FBD87F; color:#3A2C43; font-family:'Gabarito',sans-serif; font-weight:900; font-size:18px; display:flex; align-items:center; justify-content:center;">L</span>
+            <div style="display:flex; flex-direction:column;">
+              <span style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:18px; color:#FDF2EC;">Laura</span>
+              <span style="font-size:13px; color:#B9A6C4;">2 anos e 3 meses</span>
+            </div>
+          </div>
+          <div style="padding:16px; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; flex-direction:column; gap:3px;">
+              <span style="font-size:12px; font-weight:600; color:#786785;">Rotina</span>
+              <span style="font-size:14px; color:#3A2C43;">Acorda 7h · soneca 13h–14h30 · dorme 20h</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px;">
+              <span style="font-size:12px; font-weight:600; color:#786785;">Interesses</span>
+              <span style="font-size:14px; color:#3A2C43;">Caixas, água, empilhar objetos, música</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px;">
+              <span style="font-size:12px; font-weight:600; color:#786785;">Observação dos pais</span>
+              <span style="font-size:14px; color:#3A2C43;">Ela anda muito seletiva com comida essa semana.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Passo numerado e destaque</div>
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <span style="font-family:'Gabarito',sans-serif; font-weight:900; font-size:34px; line-height:1; color:#E0836C;">01</span>
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <span style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:19px;">Você conta.</span>
+            <span style="font-size:14px; line-height:1.55; color:#574863;">O sistema entende o momento.</span>
+          </div>
+        </div>
+        <div style="background:#FBD87F; border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:4px;">
+          <span style="font-family:'Gabarito',sans-serif; font-weight:900; font-size:28px; line-height:1; color:#3A2C43;">100 famílias</span>
+          <span style="font-size:13px; color:#5A4530;">Preço especial de fundador para quem entrar agora.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px solid #EBD9CF; padding-bottom:12px;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#786785;">05</span>
+      <span style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:26px; letter-spacing:-.02em;">Voz</span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;">
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:18px; color:#2F7D5B;">Como o Quintal fala</div>
+        <div style="font-size:14px; line-height:1.7; color:#574863;">Frases curtas, no presente. Uma decisão por mensagem. Sempre com uma saída fácil: "se hoje não der, tudo bem".</div>
+      </div>
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:18px; color:#C1553D;">Como não fala</div>
+        <div style="font-size:14px; line-height:1.7; color:#574863;">Nada de listas infinitas, alarmes, culpa ou linguagem clínica. Nunca diz ao pai que ele não está fazendo o suficiente.</div>
+      </div>
+      <div style="background:#3A2C43; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:18px; color:#FBD87F;">Sem emoji</div>
+        <div style="font-size:14px; line-height:1.7; color:#DDD2E4;">O calor vem da cor e do tom das frases. Ícones de linha, 1.8px, cantos arredondados.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+      <defs>
+        <filter id="q-chalk" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" result="n"></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+        <filter id="q-felt" x="0%" y="0%" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="3" result="n"></feTurbulence>
+          <feColorMatrix in="n" type="saturate" values="0" result="g"></feColorMatrix>
+          <feComponentTransfer in="g" result="a"><feFuncA type="linear" slope="0.42"></feFuncA></feComponentTransfer>
+          <feBlend in="SourceGraphic" in2="a" mode="multiply"></feBlend>
+        </filter>
+        <filter id="q-torn" x="-6%" y="-6%" width="112%" height="112%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="4" seed="11" result="n"></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
+
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px solid #EBD9CF; padding-bottom:12px; flex-wrap:wrap;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#786785;">06</span>
+      <span style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:26px; letter-spacing:-.02em;">Texturas e elementos</span>
+      <span style="font-size:14px; color:#786785;">Giz, blocos de madeira, feltro</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;">
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Tons de material</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <div style="flex:0 0 auto; width:64px; display:flex; flex-direction:column; gap:5px;"><div style="height:44px; border-radius:8px; background:#F2E2C8;"></div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#786785;">#F2E2C8</div></div>
+          <div style="flex:0 0 auto; width:64px; display:flex; flex-direction:column; gap:5px;"><div style="height:44px; border-radius:8px; background:#E0C39C;"></div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#786785;">#E0C39C</div></div>
+          <div style="flex:0 0 auto; width:64px; display:flex; flex-direction:column; gap:5px;"><div style="height:44px; border-radius:8px; background:#C09B6E;"></div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#786785;">#C09B6E</div></div>
+          <div style="flex:0 0 auto; width:64px; display:flex; flex-direction:column; gap:5px;"><div style="height:44px; border-radius:8px; background:#F6E9E1;"></div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#786785;">#F6E9E1</div></div>
+        </div>
+        <div style="font-size:13px; line-height:1.55; color:#574863;">Papel e areia são <b>materiais</b>, não cores de marca: entram em ilustração e fundo, nunca em texto, botão ou estado.</div>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:18px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Superfícies</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <div style="flex:1 1 120px; height:92px; border-radius:12px; background:repeating-linear-gradient(93deg,#EFDCBF 0px,#E6CEA9 4px,#F3E3CA 8px,#E2C79F 12px,#EFDCBF 16px); box-shadow:inset 0 -6px 12px rgba(150,110,66,.18); position:relative; overflow:hidden;">
+            <div style="position:absolute; left:22%; top:-18%; width:44px; height:130%; border-radius:99px; background:rgba(170,126,78,.18); transform:rotate(6deg);"></div>
+            <div style="position:absolute; inset:auto 8px 8px 8px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#8A6438;">madeira</div>
+          </div>
+          <div style="flex:1 1 120px; height:92px; border-radius:12px; background:#C9B6E4; filter:url(#q-felt); box-shadow:inset 0 0 0 1px rgba(58,44,67,.1), inset 0 -5px 10px rgba(58,44,67,.14); position:relative;">
+            <div style="position:absolute; inset:auto 8px 8px 8px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#3A2C43;">feltro</div>
+          </div>
+          <div style="flex:1 1 120px; height:92px; position:relative;">
+            <div style="position:absolute; inset:0; border-radius:2px; background:#FDF2EC; box-shadow:0 6px 18px rgba(58,44,67,.14); filter:url(#q-torn);"></div>
+            <div style="position:absolute; inset:auto 8px 8px 10px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#786785;">papel rasgado</div>
+          </div>
+        </div>
+        <div style="font-size:13px; line-height:1.55; color:#574863;">Uma textura por bloco. Nunca duas superfícies materiais encostadas.</div>
+      </div>
+    </div>
+
+    <div style="background:#3A2C43; border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:20px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#B9A6C4;">Marcas de giz · sobre ameixa</div>
+      <div style="display:flex; flex-wrap:wrap; gap:28px; align-items:center;">
+        <svg width="150" height="90" viewBox="0 0 150 90" fill="none" filter="url(#q-chalk)" aria-hidden="true">
+          <circle cx="46" cy="44" r="22" stroke="#FBD87F" stroke-width="3" stroke-linecap="round" opacity=".92"></circle>
+          <path d="M46 12v-8M46 84v-8M14 44H6M86 44h8M24 22l-6-6M68 66l6 6M68 22l6-6M24 66l-6 6" stroke="#FBD87F" stroke-width="3" stroke-linecap="round" opacity=".8"></path>
+          <path d="M104 60c6-14 14-14 20 0s14 14 20 0" stroke="#C9B6E4" stroke-width="3" stroke-linecap="round" opacity=".9"></path>
+        </svg>
+        <svg width="170" height="90" viewBox="0 0 170 90" fill="none" filter="url(#q-chalk)" aria-hidden="true">
+          <path d="M8 62c18-6 26-30 40-30s16 26 32 26 22-30 38-30 26 22 44 20" stroke="#E0836C" stroke-width="3" stroke-linecap="round" opacity=".9"></path>
+          <path d="M10 74c40 8 96 8 150-2" stroke="#FBD87F" stroke-width="2.4" stroke-linecap="round" opacity=".6"></path>
+        </svg>
+        <svg width="120" height="90" viewBox="0 0 120 90" fill="none" filter="url(#q-chalk)" aria-hidden="true">
+          <path d="M30 20l8 18 20 3-15 13 4 20-17-10-17 10 4-20-15-13 20-3z" stroke="#C9B6E4" stroke-width="2.6" stroke-linejoin="round" opacity=".92"></path>
+          <path d="M72 70c0-26 10-40 34-46" stroke="#FBD87F" stroke-width="3" stroke-linecap="round" opacity=".85"></path>
+          <path d="M98 22l10 2-4 10" stroke="#FBD87F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".85"></path>
+        </svg>
+        <div style="flex:1 1 220px; font-size:14px; line-height:1.65; color:#DDD2E4;">Traço de giz: 2.4–3px, pontas arredondadas, opacidade 0.6–0.92, sempre com o filtro de ruído. Usar como marginália — sublinhados, setas, estrelas — nunca para desenhar personagens ou ícones de interface.</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; align-items:start;">
+      <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#786785;">Aplicado · card de pilar</div>
+        <div style="border:1px solid #EBD9CF; border-radius:14px; overflow:hidden;">
+          <div style="height:96px; background:#3A2C43; position:relative; overflow:hidden;">
+            <svg width="100%" height="96" viewBox="0 0 320 96" preserveAspectRatio="xMidYMid slice" fill="none" filter="url(#q-chalk)" aria-hidden="true">
+              <path d="M236 52a22 22 0 1 1-22-26 17 17 0 0 0 22 26z" stroke="#FBD87F" stroke-width="2.8" stroke-linejoin="round" opacity=".9"></path>
+              <path d="M20 74c22-8 34-26 56-26s30 20 52 20 34-22 56-22" stroke="#C9B6E4" stroke-width="2.6" stroke-linecap="round" opacity=".55"></path>
+              <path d="M52 30l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z" stroke="#E0836C" stroke-width="2.2" stroke-linejoin="round" opacity=".8"></path>
+            </svg>
+          </div>
+          <div style="padding:18px; display:flex; flex-direction:column; gap:8px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#A3543F;">Pilar 01</div>
+            <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:20px;">Sono</div>
+            <div style="font-size:14px; line-height:1.55; color:#574863;">Ajuda a entender e organizar padrões, sem virar polícia do sono.</div>
+          </div>
+        </div>
+        <div style="font-size:13px; line-height:1.55; color:#574863;">Textura só na faixa superior. O conteúdo permanece em superfície lisa e legível.</div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF; border:1px solid #EBD9CF; border-radius:14px; padding:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;">
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:17px; color:#2F7D5B;">Onde usar</div>
+        <div style="font-size:14px; line-height:1.65; color:#574863;">Hero, divisores de seção, capas de pilar, ilustração dos quatro pilares, materiais do Family Setup, Instagram.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:17px; color:#C1553D;">Onde não usar</div>
+        <div style="font-size:14px; line-height:1.65; color:#574863;">Atrás de texto corrido, em formulários, bolhas de conversa, tabelas ou qualquer superfície que a família precise ler rápido.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="font-family:'Gabarito',sans-serif; font-weight:700; font-size:17px;">Dose</div>
+        <div style="font-size:14px; line-height:1.65; color:#574863;">No máximo um momento texturizado por tela. A leveza depende do espaço vazio em volta.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200}}"></script>
+</body>
+</html>

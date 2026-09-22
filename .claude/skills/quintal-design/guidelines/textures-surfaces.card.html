@@ -1,0 +1,19 @@
+<!-- @dsCard group="Brand" viewport="700x190" name="Surfaces" subtitle="Felt, paper and pine — illustration only" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:18px;background:var(--pessego);font-family:var(--font-text);color:var(--text-primary);}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;}
+.sw{display:flex;flex-direction:column;gap:6px;width:118px;}
+.chip{height:0px;border-radius:var(--radius-card);}
+.mono{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);}
+.nm{font-family:var(--font-display);font-weight:700;font-size:14px;}</style>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <filter id="ft"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="3" result="n"></feTurbulence><feColorMatrix in="n" type="saturate" values="0" result="g"></feColorMatrix><feComponentTransfer in="g" result="a"><feFuncA type="linear" slope="0.42"></feFuncA></feComponentTransfer><feBlend in="SourceGraphic" in2="a" mode="multiply"></feBlend></filter>
+  <filter id="tr" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="4" seed="11" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
+</defs></svg>
+<div class="row" style="gap:12px">
+  <div style="flex:0 0 auto;width:200px;height:96px;border-radius:12px;background:#C9B6E4;filter:url(#ft);box-shadow:inset 0 -5px 10px rgba(58,44,67,.14)"></div>
+  <div style="flex:0 0 auto;width:200px;height:96px;position:relative"><div style="position:absolute;inset:0;background:var(--pessego);box-shadow:0 6px 18px rgba(58,44,67,.14);filter:url(#tr)"></div></div>
+  <div style="flex:0 0 auto;width:200px;height:96px;border-radius:12px;background:repeating-linear-gradient(93deg,#EFDCBF 0,#E6CEA9 4px,#F3E3CA 8px,#E2C79F 12px,#EFDCBF 16px);box-shadow:inset 0 -6px 12px rgba(150,110,66,.18)"></div>
+</div>
+<div class="mono" style="margin-top:10px">feltro · papel rasgado · pinus — nunca atrás de texto corrido</div>

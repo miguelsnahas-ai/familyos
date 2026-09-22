@@ -15,16 +15,21 @@ export function Footer() {
         </div>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-ink-faint">
           <span>{footer.tagline}</span>
-          <a href={`mailto:${footer.email}`} className="hover:text-ink">
+          <a href={`mailto:${footer.email}`} className="text-link hover:text-clay">
             {footer.email}
           </a>
-          <a href={footer.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-ink">
+          <a
+            href={footer.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link hover:text-clay"
+          >
             Instagram
           </a>
-          <Link href={footer.privacy} className="hover:text-ink">
+          <Link href={footer.privacy} className="text-link hover:text-clay">
             Privacidade
           </Link>
-          <Link href={footer.terms} className="hover:text-ink">
+          <Link href={footer.terms} className="text-link hover:text-clay">
             Termos
           </Link>
         </div>

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Reference material for the quintal-design skill, not app source.
+    ".claude/skills/**",
   ]),
 ]);
 

@@ -30,10 +30,9 @@ export function Button({
             ? "bg-transparent text-cream border border-[#7A6A83] font-semibold hover:bg-white/8"
             : "bg-transparent text-ink border border-border-strong font-semibold hover:bg-tinted"),
         variant === "ghost" &&
-          cn(
-            "bg-transparent font-semibold px-3.5",
-            onDark ? "text-butter" : "text-link hover:text-clay",
-          ),
+          (onDark
+            ? "bg-transparent text-butter font-semibold px-3.5 hover:bg-white/8"
+            : "bg-transparent text-link font-semibold px-3.5 hover:bg-tinted"),
         className,
       )}
       disabled={disabled || loading}

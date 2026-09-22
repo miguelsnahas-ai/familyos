@@ -1,0 +1,39 @@
+:root {
+  /* Brand */
+  --ameixa: #3A2C43;      /* plum — all primary text, dark surfaces */
+  --pessego: #FDF2EC;     /* peach — default page background */
+  --lilas: #C9B6E4;       /* lilac — calm, sleep, family voice */
+  --barro: #E0836C;       /* clay — small accents, pillar icons */
+  --manteiga: #FBD87F;    /* butter — the single CTA colour */
+
+  /* Text */
+  --text-primary: #3A2C43;
+  --text-secondary: #574863;
+  --text-tertiary: #786785;
+  --text-on-dark: #FDF2EC;
+  --text-on-dark-muted: #DDD2E4;
+  --text-link: #A3543F;
+  --text-link-hover: #E0836C;
+
+  /* Surface */
+  --surface: #FFFFFF;
+  --surface-sunken: #FDF2EC;
+  --surface-tinted: #F6E9E1;
+  --surface-dark: #3A2C43;
+  --border: #EBD9CF;
+  --border-strong: #D9C6CE;
+
+  /* States — sober on purpose. The product never alarms a parent. */
+  --positive: #2F7D5B;
+  --attention: #C1553D;
+  --resting: #C9B6E4;
+
+  /* Materials — illustration and texture only, never text or UI */
+  --madeira-clara: #F2E2C8;
+  --madeira: #E0C39C;
+  --madeira-escura: #C09B6E;
+  --papel: #F6E9E1;
+
+  /* Focus */
+  --focus-ring: 0 0 0 2px rgba(224, 131, 108, 0.45);
+}

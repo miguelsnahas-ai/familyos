@@ -95,6 +95,16 @@ body {
   font-size: var(--text-body);
   line-height: var(--text-body--line-height);
   -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-clay);
 }
 
 h1,
@@ -103,6 +113,7 @@ h3,
 h4 {
   font-family: var(--font-display);
   margin: 0;
+  letter-spacing: var(--text-title--letter-spacing);
 }
 
 ::selection {

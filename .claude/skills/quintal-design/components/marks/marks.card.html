@@ -1,0 +1,27 @@
+<!-- @dsCard group="Components" viewport="700x200" name="Chalk marks" subtitle="Marginalia for plum surfaces" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--pessego);} .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;} .grid{display:grid;gap:12px;}</style>
+<div id="root"></div>
+<script type="text/babel">
+  const NS = window[Object.keys(window).find(k => /^DesignSystem_/.test(k))] || {};
+  const { ChalkMark, ChalkDefs } = NS;
+  function Demo(){ return (
+    <div style={{background:'var(--surface-dark)',borderRadius:'var(--radius-block)',padding:24}}>
+      <ChalkDefs />
+      <div className="row" style={{gap:26}}>
+        <ChalkMark mark="sun" />
+        <ChalkMark mark="scallop" color="var(--lilas)" />
+        <ChalkMark mark="star" color="var(--lilas)" />
+        <ChalkMark mark="arrow" />
+        <ChalkMark mark="wave" color="var(--barro)" />
+        <ChalkMark mark="underline" />
+      </div>
+    </div>
+  ); }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>

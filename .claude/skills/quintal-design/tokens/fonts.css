@@ -1,0 +1,10 @@
+/* Quintal type stack.
+   Gabarito (display) + Hanken Grotesk (text) + JetBrains Mono (eyebrows/meta).
+   All three are open source and served from Google Fonts. No commercial licence needed. */
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --font-display: "Gabarito", "Hanken Grotesk", system-ui, sans-serif;
+  --font-text: "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
