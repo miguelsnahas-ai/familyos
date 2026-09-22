@@ -44,34 +44,41 @@ export async function POST(request: NextRequest) {
 
   const supabase = getSupabaseAdmin();
   if (supabase) {
-    const { error } = await supabase.from("waitlist_leads").insert({
-      name: data.name,
-      email: data.email,
-      whatsapp: data.whatsapp,
-      child_count: data.childCount,
-      child_age: data.childAge,
-      support_network: data.supportNetwork,
-      support_network_other: data.supportNetworkOther || null,
-      caregivers: data.caregivers,
-      caregivers_other: data.caregiversOther || null,
-      professionals: data.professionals,
-      course_taken: data.courseTaken,
-      course_which: data.courseWhich || null,
-      app_used: data.appUsed,
-      app_which: data.appWhich || null,
-      challenges: data.challenges,
-      challenges_other: data.challengesOther || null,
-      how_found: data.howFound,
-      how_found_other: data.howFoundOther || null,
-      expectation: data.expectation || null,
-      family_setup_interest: data.familySetupInterest,
-      utm_source: data.utmSource || null,
-      utm_medium: data.utmMedium || null,
-      utm_campaign: data.utmCampaign || null,
-    });
+    try {
+      const { error } = await supabase.from("waitlist_leads").insert({
+        name: data.name,
+        email: data.email,
+        whatsapp: data.whatsapp,
+        child_count: data.childCount,
+        child_age: data.childAge,
+        support_network: data.supportNetwork,
+        support_network_other: data.supportNetworkOther || null,
+        caregivers: data.caregivers,
+        caregivers_other: data.caregiversOther || null,
+        professionals: data.professionals,
+        course_taken: data.courseTaken,
+        course_which: data.courseWhich || null,
+        app_used: data.appUsed,
+        app_which: data.appWhich || null,
+        challenges: data.challenges,
+        challenges_other: data.challengesOther || null,
+        how_found: data.howFound,
+        how_found_other: data.howFoundOther || null,
+        expectation: data.expectation || null,
+        family_setup_interest: data.familySetupInterest,
+        utm_source: data.utmSource || null,
+        utm_medium: data.utmMedium || null,
+        utm_campaign: data.utmCampaign || null,
+      });
 
-    if (error) {
-      console.error("Erro ao gravar lead no Supabase:", error);
+      if (error) {
+        console.error("Erro ao gravar lead no Supabase:", error);
+        return NextResponse.json({ error: "Não conseguimos salvar seu cadastro." }, { status: 500 });
+      }
+    } catch (error) {
+      // Catches thrown errors (e.g. a malformed SUPABASE_URL) that
+      // supabase-js doesn't surface through the { error } result.
+      console.error("Falha ao conectar no Supabase:", error);
       return NextResponse.json({ error: "Não conseguimos salvar seu cadastro." }, { status: 500 });
     }
   } else {
