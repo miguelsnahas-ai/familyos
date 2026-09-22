@@ -31,12 +31,22 @@ UI sem depender de infra externa.
 
 ### Supabase (armazenamento dos leads)
 
-Já está configurado: projeto `familyos` criado na organização Link
-Ventures (região sa-east-1), com a tabela `waitlist_leads` e uma policy
-de RLS que permite **apenas INSERT** com a chave anon/publishable — ela
-nunca consegue ler, atualizar ou apagar leads existentes, então é segura
-mesmo sendo uma chave "pública". Para ler os leads, use o SQL editor do
+Usa o projeto Supabase `familyos` (id `izattwaiqjzhydzhxlns`, organização
+"miguelsnahas-ai's Org") — o mesmo projeto do backend do produto. A
+landing só grava na tabela `waitlist_leads`; as demais tabelas
+(`families`, `children`, `caregivers`, `messages`, `events`,
+`ai_settings`) são do produto e não devem ser tocadas por este projeto.
+
+`waitlist_leads` tem uma policy de RLS que permite **apenas INSERT** com
+a chave anon/publishable — ela nunca consegue ler, atualizar ou apagar
+leads existentes (nem tocar nas outras tabelas), então é segura mesmo
+sendo uma chave "pública". Para ler os leads, use o SQL editor do
 Supabase (dashboard) ou a service_role key manualmente.
+
+⚠️ Existe um projeto Supabase antigo (`swfavmvtkcflkkirmxat`, org "Link
+Ventures") de uma iteração anterior — não é mais usado. Se `SUPABASE_URL`
+na Vercel não bater com `izattwaiqjzhydzhxlns`, é por isso que os envios
+falham.
 
 Se precisar recriar do zero: rode `supabase/schema.sql` no SQL editor de
 um novo projeto e preencha `SUPABASE_URL` / `SUPABASE_ANON_KEY` com a
