@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, FormProvider, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { waitlistSchema, type WaitlistInput } from "@/lib/schema";
 import { Field } from "@/components/ui/Field";
-import { FieldGroup } from "@/components/ui/FieldGroup";
 import { Input } from "@/components/ui/Input";
 import { Choice } from "@/components/ui/Choice";
 import { Button } from "@/components/ui/Button";
 import { Toast } from "@/components/ui/Toast";
+import { ChoiceGroupWithOther } from "@/components/ChoiceGroupWithOther";
 import { waitlist } from "@/content";
 import { track } from "@/lib/analytics";
 import { maskPhoneBR } from "@/lib/utils";
@@ -31,14 +31,7 @@ export function WaitlistForm() {
     return () => clearTimeout(timer);
   }, [toast]);
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    setValue,
-    watch,
-    formState: { errors, isSubmitting },
-  } = useForm<WaitlistInput>({
+  const methods = useForm<WaitlistInput>({
     resolver: zodResolver(waitlistSchema),
     defaultValues: {
       name: "",
@@ -63,13 +56,13 @@ export function WaitlistForm() {
       utmCampaign: "",
     },
   });
-
-  const supportNetwork = watch("supportNetwork");
-  const caregivers = watch("caregivers");
-  const courseTaken = watch("courseTaken");
-  const appUsed = watch("appUsed");
-  const challenges = watch("challenges");
-  const howFound = watch("howFound");
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    formState: { errors, isSubmitting },
+  } = methods;
 
   useEffect(() => {
     setValue("utmSource", searchParams.get("utm_source") ?? "");
@@ -120,320 +113,194 @@ export function WaitlistForm() {
   }
 
   return (
-    <>
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      onFocus={handleFirstInteraction}
-      className="flex flex-col gap-6"
-      noValidate
-    >
-      {/* Honeypot — hidden from real users, invisible to screen readers */}
-      <div className="hidden" aria-hidden="true">
-        <label htmlFor="website">Não preencha este campo</label>
-        <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register("honeypot")} />
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field label={waitlist.fields.name.label} htmlFor="name" error={errors.name?.message}>
-          <Input
-            id="name"
-            placeholder={waitlist.fields.name.placeholder}
-            aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? "name-error" : undefined}
-            hasError={!!errors.name}
-            {...register("name")}
-          />
-        </Field>
-        <Field label={waitlist.fields.email.label} htmlFor="email" error={errors.email?.message}>
-          <Input
-            id="email"
-            type="email"
-            placeholder={waitlist.fields.email.placeholder}
-            aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? "email-error" : undefined}
-            hasError={!!errors.email}
-            {...register("email")}
-          />
-        </Field>
-      </div>
-
-      <Field
-        label={waitlist.fields.whatsapp.label}
-        htmlFor="whatsapp"
-        error={errors.whatsapp?.message}
+    <FormProvider {...methods}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        onFocus={handleFirstInteraction}
+        className="flex flex-col gap-6"
+        noValidate
       >
-        <Controller
-          control={control}
-          name="whatsapp"
-          render={({ field }) => (
+        {/* Honeypot — hidden from real users, invisible to screen readers */}
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor="website">Não preencha este campo</label>
+          <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register("honeypot")} />
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field label={waitlist.fields.name.label} htmlFor="name" error={errors.name?.message}>
             <Input
-              id="whatsapp"
-              type="tel"
-              inputMode="numeric"
-              placeholder={waitlist.fields.whatsapp.placeholder}
-              aria-invalid={!!errors.whatsapp}
-              aria-describedby={errors.whatsapp ? "whatsapp-error" : undefined}
-              hasError={!!errors.whatsapp}
-              value={field.value}
-              onChange={(event) => field.onChange(maskPhoneBR(event.target.value))}
-              onBlur={field.onBlur}
-              name={field.name}
+              id="name"
+              placeholder={waitlist.fields.name.placeholder}
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? "name-error" : undefined}
+              hasError={!!errors.name}
+              {...register("name")}
             />
-          )}
+          </Field>
+          <Field label={waitlist.fields.email.label} htmlFor="email" error={errors.email?.message}>
+            <Input
+              id="email"
+              type="email"
+              placeholder={waitlist.fields.email.placeholder}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? "email-error" : undefined}
+              hasError={!!errors.email}
+              {...register("email")}
+            />
+          </Field>
+        </div>
+
+        <Field
+          label={waitlist.fields.whatsapp.label}
+          htmlFor="whatsapp"
+          error={errors.whatsapp?.message}
+        >
+          <Controller
+            control={control}
+            name="whatsapp"
+            render={({ field }) => (
+              <Input
+                id="whatsapp"
+                type="tel"
+                inputMode="numeric"
+                placeholder={waitlist.fields.whatsapp.placeholder}
+                aria-invalid={!!errors.whatsapp}
+                aria-describedby={errors.whatsapp ? "whatsapp-error" : undefined}
+                hasError={!!errors.whatsapp}
+                value={field.value}
+                onChange={(event) => field.onChange(maskPhoneBR(event.target.value))}
+                onBlur={field.onBlur}
+                name={field.name}
+              />
+            )}
+          />
+        </Field>
+
+        <ChoiceGroupWithOther
+          name="childCount"
+          type="radio"
+          legend={waitlist.fields.childCount.label}
+          options={waitlist.fields.childCount.options}
         />
-      </Field>
 
-      <FieldGroup legend={waitlist.fields.childCount.label} error={errors.childCount?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.childCount.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`childCount-${index}`}
-              type="radio"
-              label={option.label}
-              value={option.value}
-              {...register("childCount")}
-            />
-          ))}
-        </div>
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.childAge.label} error={errors.childAge?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.childAge.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`childAge-${index}`}
-              label={option.label}
-              value={option.value}
-              {...register("childAge")}
-            />
-          ))}
-        </div>
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.supportNetwork.label} error={errors.supportNetwork?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.supportNetwork.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`supportNetwork-${index}`}
-              label={option.label}
-              value={option.value}
-              {...register("supportNetwork")}
-            />
-          ))}
-        </div>
-        {supportNetwork?.includes("outra") && (
-          <Input
-            placeholder="Qual?"
-            aria-label="Descreva a outra rede de apoio"
-            aria-invalid={!!errors.supportNetworkOther}
-            aria-describedby={errors.supportNetworkOther ? "supportNetworkOther-error" : undefined}
-            hasError={!!errors.supportNetworkOther}
-            {...register("supportNetworkOther")}
-          />
-        )}
-        {errors.supportNetworkOther && (
-          <p id="supportNetworkOther-error" role="alert" className="text-[13px] text-error">
-            {errors.supportNetworkOther.message}
-          </p>
-        )}
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.caregivers.label} error={errors.caregivers?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.caregivers.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`caregivers-${index}`}
-              label={option.label}
-              value={option.value}
-              {...register("caregivers")}
-            />
-          ))}
-        </div>
-        {caregivers?.includes("outra") && (
-          <Input
-            placeholder="Quem?"
-            aria-label="Descreva quem mais participa da rotina"
-            aria-invalid={!!errors.caregiversOther}
-            aria-describedby={errors.caregiversOther ? "caregiversOther-error" : undefined}
-            hasError={!!errors.caregiversOther}
-            {...register("caregiversOther")}
-          />
-        )}
-        {errors.caregiversOther && (
-          <p id="caregiversOther-error" role="alert" className="text-[13px] text-error">
-            {errors.caregiversOther.message}
-          </p>
-        )}
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.professionals.label} error={errors.professionals?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.professionals.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`professionals-${index}`}
-              label={option.label}
-              value={option.value}
-              {...register("professionals")}
-            />
-          ))}
-        </div>
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.courseTaken.label} error={errors.courseTaken?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.courseTaken.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`courseTaken-${index}`}
-              type="radio"
-              label={option.label}
-              value={option.value}
-              {...register("courseTaken")}
-            />
-          ))}
-        </div>
-        {courseTaken === "sim" && (
-          <Input
-            placeholder="Qual curso?"
-            aria-label="Qual curso de parentalidade"
-            aria-invalid={!!errors.courseWhich}
-            aria-describedby={errors.courseWhich ? "courseWhich-error" : undefined}
-            hasError={!!errors.courseWhich}
-            {...register("courseWhich")}
-          />
-        )}
-        {errors.courseWhich && (
-          <p id="courseWhich-error" role="alert" className="text-[13px] text-error">
-            {errors.courseWhich.message}
-          </p>
-        )}
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.appUsed.label} error={errors.appUsed?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.appUsed.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`appUsed-${index}`}
-              type="radio"
-              label={option.label}
-              value={option.value}
-              {...register("appUsed")}
-            />
-          ))}
-        </div>
-        {appUsed === "sim" && (
-          <Input
-            placeholder="Qual aplicativo?"
-            aria-label="Qual aplicativo de parentalidade"
-            aria-invalid={!!errors.appWhich}
-            aria-describedby={errors.appWhich ? "appWhich-error" : undefined}
-            hasError={!!errors.appWhich}
-            {...register("appWhich")}
-          />
-        )}
-        {errors.appWhich && (
-          <p id="appWhich-error" role="alert" className="text-[13px] text-error">
-            {errors.appWhich.message}
-          </p>
-        )}
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.challenges.label} error={errors.challenges?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.challenges.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`challenges-${index}`}
-              label={option.label}
-              value={option.value}
-              {...register("challenges")}
-            />
-          ))}
-        </div>
-        {challenges?.includes("outra") && (
-          <Input
-            placeholder="Qual?"
-            aria-label="Descreva o outro desafio"
-            aria-invalid={!!errors.challengesOther}
-            aria-describedby={errors.challengesOther ? "challengesOther-error" : undefined}
-            hasError={!!errors.challengesOther}
-            {...register("challengesOther")}
-          />
-        )}
-        {errors.challengesOther && (
-          <p id="challengesOther-error" role="alert" className="text-[13px] text-error">
-            {errors.challengesOther.message}
-          </p>
-        )}
-      </FieldGroup>
-
-      <FieldGroup legend={waitlist.fields.howFound.label} error={errors.howFound?.message}>
-        <div className="flex flex-wrap gap-2.5">
-          {waitlist.fields.howFound.options.map((option, index) => (
-            <Choice
-              key={option.value}
-              id={`howFound-${index}`}
-              type="radio"
-              label={option.label}
-              value={option.value}
-              {...register("howFound")}
-            />
-          ))}
-        </div>
-        {howFound === "outra" && (
-          <Input
-            placeholder="Onde?"
-            aria-label="Descreva onde nos conheceu"
-            aria-invalid={!!errors.howFoundOther}
-            aria-describedby={errors.howFoundOther ? "howFoundOther-error" : undefined}
-            hasError={!!errors.howFoundOther}
-            {...register("howFoundOther")}
-          />
-        )}
-        {errors.howFoundOther && (
-          <p id="howFoundOther-error" role="alert" className="text-[13px] text-error">
-            {errors.howFoundOther.message}
-          </p>
-        )}
-      </FieldGroup>
-
-      <Field
-        label={waitlist.fields.expectation.label}
-        htmlFor="expectation"
-        error={errors.expectation?.message}
-      >
-        <textarea
-          id="expectation"
-          rows={3}
-          placeholder={waitlist.fields.expectation.placeholder}
-          aria-invalid={!!errors.expectation}
-          aria-describedby={errors.expectation ? "expectation-error" : undefined}
-          className="w-full min-h-11 resize-y rounded-md bg-paper px-3.5 py-3 text-[15px] text-ink-body placeholder:text-ink-muted border border-line outline-none transition-colors focus:border-forest"
-          {...register("expectation")}
+        <ChoiceGroupWithOther
+          name="childAge"
+          legend={waitlist.fields.childAge.label}
+          options={waitlist.fields.childAge.options}
         />
-      </Field>
 
-      <Choice
-        id="familySetupInterest"
-        label={waitlist.fields.familySetupInterest}
-        {...register("familySetupInterest")}
+        <ChoiceGroupWithOther
+          name="supportNetwork"
+          legend={waitlist.fields.supportNetwork.label}
+          options={waitlist.fields.supportNetwork.options}
+          other={{
+            name: "supportNetworkOther",
+            triggerValue: "outra",
+            placeholder: "Qual?",
+            ariaLabel: "Descreva a outra rede de apoio",
+          }}
+        />
+
+        <ChoiceGroupWithOther
+          name="caregivers"
+          legend={waitlist.fields.caregivers.label}
+          options={waitlist.fields.caregivers.options}
+          other={{
+            name: "caregiversOther",
+            triggerValue: "outra",
+            placeholder: "Quem?",
+            ariaLabel: "Descreva quem mais participa da rotina",
+          }}
+        />
+
+        <ChoiceGroupWithOther
+          name="professionals"
+          legend={waitlist.fields.professionals.label}
+          options={waitlist.fields.professionals.options}
+        />
+
+        <ChoiceGroupWithOther
+          name="courseTaken"
+          type="radio"
+          legend={waitlist.fields.courseTaken.label}
+          options={waitlist.fields.courseTaken.options}
+          other={{
+            name: "courseWhich",
+            triggerValue: "sim",
+            placeholder: "Qual curso?",
+            ariaLabel: "Qual curso de parentalidade",
+          }}
+        />
+
+        <ChoiceGroupWithOther
+          name="appUsed"
+          type="radio"
+          legend={waitlist.fields.appUsed.label}
+          options={waitlist.fields.appUsed.options}
+          other={{
+            name: "appWhich",
+            triggerValue: "sim",
+            placeholder: "Qual aplicativo?",
+            ariaLabel: "Qual aplicativo de parentalidade",
+          }}
+        />
+
+        <ChoiceGroupWithOther
+          name="challenges"
+          legend={waitlist.fields.challenges.label}
+          options={waitlist.fields.challenges.options}
+          other={{
+            name: "challengesOther",
+            triggerValue: "outra",
+            placeholder: "Qual?",
+            ariaLabel: "Descreva o outro desafio",
+          }}
+        />
+
+        <ChoiceGroupWithOther
+          name="howFound"
+          type="radio"
+          legend={waitlist.fields.howFound.label}
+          options={waitlist.fields.howFound.options}
+          other={{
+            name: "howFoundOther",
+            triggerValue: "outra",
+            placeholder: "Onde?",
+            ariaLabel: "Descreva onde nos conheceu",
+          }}
+        />
+
+        <Field
+          label={waitlist.fields.expectation.label}
+          htmlFor="expectation"
+          error={errors.expectation?.message}
+        >
+          <textarea
+            id="expectation"
+            rows={3}
+            placeholder={waitlist.fields.expectation.placeholder}
+            aria-invalid={!!errors.expectation}
+            aria-describedby={errors.expectation ? "expectation-error" : undefined}
+            className="w-full min-h-11 resize-y rounded-md bg-paper px-3.5 py-3 text-[15px] text-ink-body placeholder:text-ink-muted border border-line outline-none transition-colors focus:border-forest"
+            {...register("expectation")}
+          />
+        </Field>
+
+        <Choice
+          id="familySetupInterest"
+          label={waitlist.fields.familySetupInterest}
+          {...register("familySetupInterest")}
+        />
+
+        <Button type="submit" loading={isSubmitting} className="self-start">
+          {isSubmitting ? waitlist.submitting : waitlist.submit}
+        </Button>
+      </form>
+      <Toast
+        message={toast?.message ?? ""}
+        variant={toast?.variant ?? "success"}
+        visible={toast !== null}
       />
-
-      <Button type="submit" loading={isSubmitting} className="self-start">
-        {isSubmitting ? waitlist.submitting : waitlist.submit}
-      </Button>
-    </form>
-    <Toast
-      message={toast?.message ?? ""}
-      variant={toast?.variant ?? "success"}
-      visible={toast !== null}
-    />
-    </>
+    </FormProvider>
   );
 }
