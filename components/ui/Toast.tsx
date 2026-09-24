@@ -13,8 +13,8 @@ export function Toast({
 }) {
   return (
     <div
-      role="status"
-      aria-live="polite"
+      role={variant === "error" ? "alert" : "status"}
+      aria-live={variant === "error" ? "assertive" : "polite"}
       className={cn(
         "fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-md px-5 py-3 text-[14px] font-medium transition-all duration-300",
         variant === "success" ? "bg-ink text-cream" : "bg-error text-cream",

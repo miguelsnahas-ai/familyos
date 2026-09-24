@@ -23,6 +23,14 @@ export function WaitlistForm() {
     null,
   );
 
+  // Transient feedback shouldn't linger forever — auto-dismiss so a
+  // stale error doesn't sit on screen after the user moves on.
+  useEffect(() => {
+    if (!toast) return;
+    const timer = setTimeout(() => setToast(null), 5000);
+    return () => clearTimeout(timer);
+  }, [toast]);
+
   const {
     register,
     handleSubmit,
@@ -130,6 +138,8 @@ export function WaitlistForm() {
           <Input
             id="name"
             placeholder={waitlist.fields.name.placeholder}
+            aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? "name-error" : undefined}
             hasError={!!errors.name}
             {...register("name")}
           />
@@ -139,6 +149,8 @@ export function WaitlistForm() {
             id="email"
             type="email"
             placeholder={waitlist.fields.email.placeholder}
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? "email-error" : undefined}
             hasError={!!errors.email}
             {...register("email")}
           />
@@ -159,6 +171,8 @@ export function WaitlistForm() {
               type="tel"
               inputMode="numeric"
               placeholder={waitlist.fields.whatsapp.placeholder}
+              aria-invalid={!!errors.whatsapp}
+              aria-describedby={errors.whatsapp ? "whatsapp-error" : undefined}
               hasError={!!errors.whatsapp}
               value={field.value}
               onChange={(event) => field.onChange(maskPhoneBR(event.target.value))}
@@ -214,12 +228,14 @@ export function WaitlistForm() {
           <Input
             placeholder="Qual?"
             aria-label="Descreva a outra rede de apoio"
+            aria-invalid={!!errors.supportNetworkOther}
+            aria-describedby={errors.supportNetworkOther ? "supportNetworkOther-error" : undefined}
             hasError={!!errors.supportNetworkOther}
             {...register("supportNetworkOther")}
           />
         )}
         {errors.supportNetworkOther && (
-          <p role="alert" className="text-[13px] text-error">
+          <p id="supportNetworkOther-error" role="alert" className="text-[13px] text-error">
             {errors.supportNetworkOther.message}
           </p>
         )}
@@ -241,12 +257,14 @@ export function WaitlistForm() {
           <Input
             placeholder="Quem?"
             aria-label="Descreva quem mais participa da rotina"
+            aria-invalid={!!errors.caregiversOther}
+            aria-describedby={errors.caregiversOther ? "caregiversOther-error" : undefined}
             hasError={!!errors.caregiversOther}
             {...register("caregiversOther")}
           />
         )}
         {errors.caregiversOther && (
-          <p role="alert" className="text-[13px] text-error">
+          <p id="caregiversOther-error" role="alert" className="text-[13px] text-error">
             {errors.caregiversOther.message}
           </p>
         )}
@@ -283,12 +301,14 @@ export function WaitlistForm() {
           <Input
             placeholder="Qual curso?"
             aria-label="Qual curso de parentalidade"
+            aria-invalid={!!errors.courseWhich}
+            aria-describedby={errors.courseWhich ? "courseWhich-error" : undefined}
             hasError={!!errors.courseWhich}
             {...register("courseWhich")}
           />
         )}
         {errors.courseWhich && (
-          <p role="alert" className="text-[13px] text-error">
+          <p id="courseWhich-error" role="alert" className="text-[13px] text-error">
             {errors.courseWhich.message}
           </p>
         )}
@@ -311,12 +331,14 @@ export function WaitlistForm() {
           <Input
             placeholder="Qual aplicativo?"
             aria-label="Qual aplicativo de parentalidade"
+            aria-invalid={!!errors.appWhich}
+            aria-describedby={errors.appWhich ? "appWhich-error" : undefined}
             hasError={!!errors.appWhich}
             {...register("appWhich")}
           />
         )}
         {errors.appWhich && (
-          <p role="alert" className="text-[13px] text-error">
+          <p id="appWhich-error" role="alert" className="text-[13px] text-error">
             {errors.appWhich.message}
           </p>
         )}
@@ -338,12 +360,14 @@ export function WaitlistForm() {
           <Input
             placeholder="Qual?"
             aria-label="Descreva o outro desafio"
+            aria-invalid={!!errors.challengesOther}
+            aria-describedby={errors.challengesOther ? "challengesOther-error" : undefined}
             hasError={!!errors.challengesOther}
             {...register("challengesOther")}
           />
         )}
         {errors.challengesOther && (
-          <p role="alert" className="text-[13px] text-error">
+          <p id="challengesOther-error" role="alert" className="text-[13px] text-error">
             {errors.challengesOther.message}
           </p>
         )}
@@ -366,12 +390,14 @@ export function WaitlistForm() {
           <Input
             placeholder="Onde?"
             aria-label="Descreva onde nos conheceu"
+            aria-invalid={!!errors.howFoundOther}
+            aria-describedby={errors.howFoundOther ? "howFoundOther-error" : undefined}
             hasError={!!errors.howFoundOther}
             {...register("howFoundOther")}
           />
         )}
         {errors.howFoundOther && (
-          <p role="alert" className="text-[13px] text-error">
+          <p id="howFoundOther-error" role="alert" className="text-[13px] text-error">
             {errors.howFoundOther.message}
           </p>
         )}
@@ -386,6 +412,8 @@ export function WaitlistForm() {
           id="expectation"
           rows={3}
           placeholder={waitlist.fields.expectation.placeholder}
+          aria-invalid={!!errors.expectation}
+          aria-describedby={errors.expectation ? "expectation-error" : undefined}
           className="w-full min-h-11 resize-y rounded-md bg-paper px-3.5 py-3 text-[15px] text-ink-body placeholder:text-ink-muted border border-line outline-none transition-colors focus:border-forest"
           {...register("expectation")}
         />

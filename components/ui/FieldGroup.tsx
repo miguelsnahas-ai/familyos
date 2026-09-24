@@ -9,12 +9,17 @@ export function FieldGroup({
   error?: string;
   children: ReactNode;
 }) {
+  const errorId = `${legend.replace(/\s+/g, "-").toLowerCase()}-error`;
+
   return (
-    <fieldset className="flex flex-col gap-2.5">
+    <fieldset
+      className="flex flex-col gap-2.5"
+      aria-describedby={error ? errorId : undefined}
+    >
       <legend className="mb-0.5 text-label font-bold uppercase tracking-[0.06em] text-ink">{legend}</legend>
       {children}
       {error && (
-        <p role="alert" className="text-[13px] text-error">
+        <p id={errorId} role="alert" className="text-[13px] text-error">
           {error}
         </p>
       )}

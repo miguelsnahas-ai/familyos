@@ -124,7 +124,15 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Keeps anchor-jump targets (and keyboard focus) clear of the
+     sticky nav (h-[68px] in Nav.tsx) instead of hiding under it. */
+  scroll-padding-top: 68px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
