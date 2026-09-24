@@ -1,32 +1,33 @@
-// The Quintal mark — a portal com sol: the gateway into the backyard,
-// with the sun that's always there. Two shapes only, no illustration.
-// `variant="dark"` (default) is the plum square for peach surfaces;
-// `variant="light"` is the butter square for dark surfaces.
+import Image from "next/image";
+
+// The real Quintal logo lockups, cut from the brand's supplied logo
+// sheet. `variant="wordmark"` (default) is the sun + wordmark without
+// the tagline, for small sizes and footers. `variant="sun"` is the
+// mark alone. `variant="reversed"` is the cream lockup for ink panels.
+const SOURCES = {
+  wordmark: { src: "/brand/quintal-wordmark.png", ratio: 662 / 359 },
+  sun: { src: "/brand/quintal-sun.png", ratio: 319 / 185 },
+  reversed: { src: "/brand/quintal-reversed.png", ratio: 651 / 413 },
+} as const;
+
 export function QuintalMark({
-  size = 32,
-  variant = "dark",
+  height = 28,
+  variant = "wordmark",
   className,
 }: {
-  size?: number;
-  variant?: "dark" | "light";
+  height?: number;
+  variant?: keyof typeof SOURCES;
   className?: string;
 }) {
-  const bg = variant === "dark" ? "#3A2C43" : "#FBD87F";
-  const arch = variant === "dark" ? "#FDF2EC" : "#3A2C43";
-  const sun = variant === "dark" ? "#FBD87F" : "#FBD87F";
-
+  const { src, ratio } = SOURCES[variant];
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 64 64"
-      role="img"
-      aria-label="Quintal"
+    <Image
+      src={src}
+      alt="Quintal"
+      height={height}
+      width={Math.round(height * ratio)}
       className={className}
-    >
-      <rect width="64" height="64" rx="18" fill={bg} />
-      <path d="M20 50V32a12 12 0 0 1 24 0v18z" fill={arch} />
-      {variant === "dark" && <circle cx="32" cy="30" r="7" fill={sun} />}
-    </svg>
+      priority
+    />
   );
 }

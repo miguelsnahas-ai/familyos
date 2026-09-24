@@ -11,10 +11,10 @@ export function FieldGroup({
 }) {
   return (
     <fieldset className="flex flex-col gap-2.5">
-      <legend className="mb-0.5 text-label font-semibold text-ink">{legend}</legend>
+      <legend className="mb-0.5 text-label font-bold uppercase tracking-[0.06em] text-ink">{legend}</legend>
       {children}
       {error && (
-        <p role="alert" className="text-[13px] text-attention">
+        <p role="alert" className="text-[13px] text-error">
           {error}
         </p>
       )}

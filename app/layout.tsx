@@ -1,27 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Gabarito, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Newsreader, DM_Sans, Caveat } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const gabarito = Gabarito({
-  variable: "--font-gabarito",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
-  weight: ["500", "700", "900"],
+  weight: ["400", "500", "600"],
+  style: ["normal"],
   display: "swap",
 });
 
-const hanken = Hanken_Grotesk({
-  variable: "--font-hanken",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["500", "600"],
   display: "swap",
 });
 
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#fdf2ec",
+  themeColor: "#f9f3ed",
 };
 
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
@@ -62,9 +63,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="pt-BR"
       data-scroll-behavior="smooth"
-      className={`${gabarito.variable} ${hanken.variable} ${jetbrainsMono.variable} h-full`}
+      className={`${newsreader.variable} ${dmSans.variable} ${caveat.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-canvas text-ink antialiased">
+      <body className="min-h-full flex flex-col bg-paper text-ink-body antialiased">
         {children}
         <Analytics />
         {plausibleDomain && (

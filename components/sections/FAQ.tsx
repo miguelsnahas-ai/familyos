@@ -6,7 +6,7 @@ export function FAQ() {
   return (
     <section className="py-16">
       <Container className="max-w-[700px] flex flex-col gap-6">
-        <h2 className="text-title text-ink">{faq.title}</h2>
+        <h2 className="text-display-md text-ink">{faq.title}</h2>
         <Accordion items={faq.items} />
       </Container>
     </section>

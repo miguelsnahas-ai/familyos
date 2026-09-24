@@ -5,8 +5,8 @@ export const hero = {
   headline: "Cuide do seu filho com mais confiança e menos peso.",
   subheadline:
     "Sono, rotina e brincar sem carregar tudo na cabeça. Um copiloto de parentalidade no WhatsApp que ajuda com as decisões do dia a dia.",
-  ctaPrimary: "Entrar na lista de espera",
-  ctaSecondary: "Como funciona",
+  ctaPrimary: "entrar na lista de espera",
+  ctaSecondary: "como funciona",
   credibility:
     "Baseado em recomendações da SBP e da OMS sobre sono, brincar livre e desenvolvimento infantil.",
   chat: [
@@ -43,46 +43,51 @@ export const bigIdea = {
 
 export type Pillar = {
   id: "sono" | "rotina" | "brincar" | "desenvolvimento";
-  index: string;
   icon: "moon" | "clock" | "sparkle" | "blocks";
+  tone: "peach" | "sage" | "sky";
   title: string;
-  description: string;
-  example: string;
+  subtitle: string;
+  items: string[];
+  action: { label: string; sub: string; variant: "peach" | "butter" | "sage" };
 };
 
 export const pillars: Pillar[] = [
   {
     id: "sono",
-    index: "01",
     icon: "moon",
+    tone: "peach",
     title: "Sono",
-    description: "Ajuda a entender e organizar padrões, sem virar \"polícia do sono\".",
-    example: "A Laura dormiu 40 minutos a menos. Vamos adaptar o restante do dia.",
+    subtitle: "Ajuda a entender e organizar padrões, sem virar \"polícia do sono\".",
+    items: ["Identifica padrões de sono", "Sugere ajustes para o dia", "Sem cobrança, sem culpa"],
+    action: { label: "OLHA ISSO", sub: "Para entender o sono", variant: "peach" },
   },
   {
     id: "rotina",
-    index: "02",
     icon: "clock",
+    tone: "sage",
     title: "Rotina",
-    description: "Blocos e ritmos, não agenda rígida. Adapta ao dia real.",
-    example: "Manhã pesada? Aqui está uma tarde mais leve.",
+    subtitle: "Blocos e ritmos, não agenda rígida. Adapta ao dia real.",
+    items: ["Rotina flexível, não rígida", "Se ajusta ao dia real", "Menos decisão, mais leveza"],
+    action: { label: "VAMOS JUNTOS", sub: "Para organizar o dia", variant: "butter" },
   },
   {
     id: "brincar",
-    index: "03",
     icon: "sparkle",
+    tone: "peach",
     title: "Livre brincar",
-    description:
+    subtitle:
       "Cria oportunidades para a criança brincar com autonomia, sem lista de atividades educativas.",
-    example: "Você tem 30 minutos e caixas de papelão. Faça isso.",
+    items: ["Brincadeiras com o que já tem em casa", "Estimula autonomia", "Sem lista de tarefas educativas"],
+    action: { label: "ME AJUDA AGORA", sub: "Para o dia a dia", variant: "peach" },
   },
   {
     id: "desenvolvimento",
-    index: "04",
     icon: "blocks",
+    tone: "sky",
     title: "Desenvolvimento",
-    description: "Organiza conhecimento por idade em oportunidades cotidianas de brincar.",
-    example: "Nesta fase, ele pode explorar coordenação. Aqui vão 3 formas simples.",
+    subtitle: "Organiza conhecimento por idade em oportunidades cotidianas de brincar.",
+    items: ["Conteúdo certo pra cada fase", "Sem sobrecarga de informação", "Direto no que importa"],
+    action: { label: "QUERO CONVERSAR", sub: "Para saber mais", variant: "peach" },
   },
 ];
 
@@ -161,7 +166,7 @@ export const familySetup = {
     "Um especialista em parentalidade ajuda vocês a estruturar a rotina inicial, organizar o ambiente, definir prioridades e configurar o sistema. Um bate-papo de 60–90 minutos, um documento de setup, e acompanhamento nas primeiras 2 semanas.",
   price: "A partir de R$ 500",
   priceNote: "Estamos ajustando o preço com as primeiras famílias.",
-  cta: "Quero começar pelo Family Setup",
+  cta: { label: "QUERO COMEÇAR", sub: "Pelo Family Setup" },
 };
 
 export const waitlist = {
@@ -271,7 +276,7 @@ export const waitlist = {
     },
     familySetupInterest: "Também quero saber sobre o Family Setup (serviço R$ 500+)",
   },
-  submit: "Entrar na lista de espera",
+  submit: "entrar na lista de espera",
   submitting: "Enviando…",
   successToast: "Você está na lista! Redirecionando…",
   errorGeneric: "Algo deu errado. Tenta de novo em instantes?",
@@ -309,7 +314,7 @@ export const thankYou = {
     "Vamos te contar tudo pelas próximas semanas — sem spam, sem enrolação. Fica de olho no seu email.",
   helpTitle: "Nos ajuda mais?",
   helpMessage: "Marca 15 minutos com a gente pra bater um papo.",
-  calendlyCta: "Agendar conversa",
+  calendlyCta: "agendar conversa",
   backHome: "Voltar para o início",
 };
 

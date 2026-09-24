@@ -219,7 +219,7 @@ export function WaitlistForm() {
           />
         )}
         {errors.supportNetworkOther && (
-          <p role="alert" className="text-[13px] text-attention">
+          <p role="alert" className="text-[13px] text-error">
             {errors.supportNetworkOther.message}
           </p>
         )}
@@ -246,7 +246,7 @@ export function WaitlistForm() {
           />
         )}
         {errors.caregiversOther && (
-          <p role="alert" className="text-[13px] text-attention">
+          <p role="alert" className="text-[13px] text-error">
             {errors.caregiversOther.message}
           </p>
         )}
@@ -288,7 +288,7 @@ export function WaitlistForm() {
           />
         )}
         {errors.courseWhich && (
-          <p role="alert" className="text-[13px] text-attention">
+          <p role="alert" className="text-[13px] text-error">
             {errors.courseWhich.message}
           </p>
         )}
@@ -316,7 +316,7 @@ export function WaitlistForm() {
           />
         )}
         {errors.appWhich && (
-          <p role="alert" className="text-[13px] text-attention">
+          <p role="alert" className="text-[13px] text-error">
             {errors.appWhich.message}
           </p>
         )}
@@ -343,7 +343,7 @@ export function WaitlistForm() {
           />
         )}
         {errors.challengesOther && (
-          <p role="alert" className="text-[13px] text-attention">
+          <p role="alert" className="text-[13px] text-error">
             {errors.challengesOther.message}
           </p>
         )}
@@ -371,7 +371,7 @@ export function WaitlistForm() {
           />
         )}
         {errors.howFoundOther && (
-          <p role="alert" className="text-[13px] text-attention">
+          <p role="alert" className="text-[13px] text-error">
             {errors.howFoundOther.message}
           </p>
         )}
@@ -386,7 +386,7 @@ export function WaitlistForm() {
           id="expectation"
           rows={3}
           placeholder={waitlist.fields.expectation.placeholder}
-          className="w-full min-h-11 resize-y rounded-field bg-canvas px-3.5 py-3 text-[15px] text-ink placeholder:text-ink-faint border border-border outline-none transition-colors focus:border-clay"
+          className="w-full min-h-11 resize-y rounded-md bg-paper px-3.5 py-3 text-[15px] text-ink-body placeholder:text-ink-muted border border-line outline-none transition-colors focus:border-forest"
           {...register("expectation")}
         />
       </Field>

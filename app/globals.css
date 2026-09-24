@@ -2,79 +2,118 @@
 
 /* ---------------------------------------------------------------
    Quintal — design tokens
-   Ported from the Quintal Design System (tokens/*.css, readme.md).
-   Peach ground, plum ink, one bright action (butter), lilac as the
-   family's own voice, clay as a small accent. No gradients.
+   Ported from the Quintal Design System artifact (tokens.json,
+   project/README.md). Warm paper ground, forest green as the one
+   strong color, honey reserved for the single main call to action.
+   Flat surfaces — no shadows, no borders; separation is by tint.
 ----------------------------------------------------------------- */
 
 @theme {
-  /* Brand colors */
-  --color-canvas: #fdf2ec; /* pessego — page background, never pure white */
-  --color-cream: #fdf2ec; /* same value as canvas — used for text on dark surfaces */
-  --color-cream-muted: #ddd2e4; /* muted text on dark surfaces */
-  --color-ink: #3a2c43; /* ameixa — primary text + the one dark surface */
-  --color-ink-soft: #574863; /* secondary text */
-  --color-ink-faint: #786785; /* tertiary / helper text */
-  --color-lilac: #c9b6e4; /* lilas — calm, sleep, the family's own voice */
-  --color-clay: #e0836c; /* barro — small accents, pillar icons, links */
-  --color-butter: #fbd87f; /* manteiga — the single CTA color */
-  --color-surface: #ffffff; /* white cards */
-  --color-tinted: #f6e9e1; /* chip / grouped-block background */
-  --color-border: #ebd9cf;
-  --color-border-strong: #d9c6ce;
-  --color-link: #a3543f;
-  --color-positive: #2f7d5b;
-  --color-attention: #c1553d;
+  /* Color */
+  --color-paper: #f9f3ed;
+  --color-paper-raised: #f3ede1;
+  --color-ink: #0f2d21;
+  --color-ink-body: #283030;
+  --color-ink-muted: #566059;
+  --color-forest: #153f30;
+  --color-forest-soft: #547b5d;
+  --color-on-forest: #ffffff;
+  --color-cream: #fcf9f3;
+  --color-leaf: #809870;
+  --color-sage: #a2b78a;
+  --color-sage-200: #cfd8ba;
+  --color-sage-150: #e4e7d5;
+  --color-sage-100: #eaeadb;
+  --color-peach-100: #f9eadb;
+  --color-peach-200: #f6d2b4;
+  --color-butter: #f6edc6;
+  --color-honey: #f0c369;
+  --color-sun: #fca82a;
+  --color-tangerine: #ec802c;
+  --color-coral: #f0966f;
+  --color-clay: #c48850;
+  --color-sky-100: #e4f0f6;
+  --color-line: var(--color-sage-200);
+  --color-focus: var(--color-forest);
+  /* Pragmatic extension — the source system has no semantic error
+     color (its palette colors are all marked decorative-only for
+     contrast reasons). Dark tangerine, checked for 4.5:1 on paper. */
+  --color-error: #9a4a1a;
 
   /* Fonts */
-  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-gabarito), var(--font-hanken), ui-sans-serif, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-hand: var(--font-caveat), "Segoe Print", cursive;
 
-  /* Type scale — mirrors tokens/typography.css exactly */
-  --text-display: clamp(48px, 8vw, 84px);
-  --text-display--line-height: 0.98;
-  --text-display--letter-spacing: -0.035em;
-  --text-display--font-weight: 900;
+  /* Type scale — mirrors tokens.json exactly */
+  --text-display-xl: 56px;
+  --text-display-xl--line-height: 60px;
+  --text-display-xl--font-weight: 500;
+  --text-display-xl--letter-spacing: -0.01em;
 
-  --text-title: 32px;
-  --text-title--line-height: 1.1;
-  --text-title--letter-spacing: -0.02em;
-  --text-title--font-weight: 700;
+  --text-display-lg: 40px;
+  --text-display-lg--line-height: 46px;
+  --text-display-lg--font-weight: 500;
+  --text-display-lg--letter-spacing: -0.01em;
 
-  --text-subtitle: 20px;
-  --text-subtitle--line-height: 1.25;
-  --text-subtitle--font-weight: 700;
+  --text-display-md: 30px;
+  --text-display-md--line-height: 36px;
+  --text-display-md--font-weight: 500;
 
-  --text-body-lg: 19px;
-  --text-body-lg--line-height: 1.6;
+  --text-title: 22px;
+  --text-title--line-height: 26px;
+  --text-title--font-weight: 600;
 
-  --text-body: 15px;
-  --text-body--line-height: 1.65;
-
-  --text-small: 13px;
-  --text-small--line-height: 1.55;
-
-  --text-label: 13px;
-  --text-label--font-weight: 600;
-  --text-label--letter-spacing: 0.02em;
-
-  --text-eyebrow: 11px;
+  --text-eyebrow: 14px;
+  --text-eyebrow--line-height: 20px;
   --text-eyebrow--font-weight: 500;
-  --text-eyebrow--letter-spacing: 0.16em;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+
+  --text-label: 12px;
+  --text-label--line-height: 16px;
+  --text-label--font-weight: 700;
+  --text-label--letter-spacing: 0.06em;
+
+  --text-stat: 36px;
+  --text-stat--line-height: 40px;
+  --text-stat--font-weight: 600;
+  --text-stat--letter-spacing: -0.01em;
+
+  --text-hand-lg: 30px;
+  --text-hand-lg--line-height: 34px;
+
+  --text-hand: 22px;
+  --text-hand--line-height: 26px;
+
+  /* Spacing */
+  --spacing-q-1: 4px;
+  --spacing-q-2: 8px;
+  --spacing-q-3: 12px;
+  --spacing-q-4: 16px;
+  --spacing-q-5: 24px;
+  --spacing-q-6: 32px;
+  --spacing-q-7: 48px;
+  --spacing-q-8: 64px;
 
   /* Radius */
-  --radius-field: 8px;
-  --radius-card: 14px;
-  --radius-block: 20px;
-
-  /* Shadows — sm by default, md on hover only */
-  --shadow-q-sm: 0 1px 2px rgba(58, 44, 67, 0.07);
-  --shadow-q-md: 0 10px 28px rgba(58, 44, 67, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
 }
 
 :root {
-  --focus-ring: 0 0 0 2px rgba(224, 131, 108, 0.45);
   --easing: cubic-bezier(0.2, 0, 0.2, 1);
 }
 
@@ -89,8 +128,8 @@ html {
 }
 
 body {
-  background: var(--color-canvas);
-  color: var(--color-ink);
+  background: var(--color-paper);
+  color: var(--color-ink-body);
   font-family: var(--font-sans);
   font-size: var(--text-body);
   line-height: var(--text-body--line-height);
@@ -99,38 +138,37 @@ body {
 }
 
 a {
-  color: var(--color-link);
+  color: var(--color-forest);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-clay);
+  color: var(--color-forest-soft);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   margin: 0;
-  letter-spacing: var(--text-title--letter-spacing);
+  color: var(--color-ink);
 }
 
 ::selection {
-  background: var(--color-lilac);
+  background: var(--color-sage-200);
   color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-eyebrow);
+  line-height: var(--text-eyebrow--line-height);
   font-weight: var(--text-eyebrow--font-weight);
-  letter-spacing: var(--text-eyebrow--letter-spacing);
-  text-transform: uppercase;
-  color: var(--color-ink-faint);
+  color: var(--color-ink-muted);
 }

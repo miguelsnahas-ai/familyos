@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { HighlightStat } from "@/components/ui/HighlightStat";
+import { Stat } from "@/components/ui/Stat";
+import { Button } from "@/components/ui/Button";
 import { familySetup } from "@/content";
 import { track } from "@/lib/analytics";
 
@@ -11,18 +11,20 @@ export function FamilySetup() {
   return (
     <section className="py-16">
       <Container className="max-w-[720px]">
-        <Card className="flex flex-col gap-3">
+        <Card tone="peach" className="flex flex-col gap-3">
           <span className="eyebrow">Family Setup</span>
-          <h2 className="font-display font-bold text-[24px] text-ink">{familySetup.headline}</h2>
-          <p className="text-[15px] leading-relaxed text-ink-soft">{familySetup.description}</p>
-          <HighlightStat value={familySetup.price} label={familySetup.priceNote} className="mt-1" />
-          <Link
-            href="/?setup=1#waitlist"
+          <h2 className="font-serif font-semibold text-[24px] text-ink">{familySetup.headline}</h2>
+          <p className="text-[15px] leading-relaxed text-ink-body">{familySetup.description}</p>
+          <Stat value={familySetup.price} label={familySetup.priceNote} tone="neutral" className="mt-1" />
+          <Button
+            variant="peach"
+            sub={familySetup.cta.sub}
             onClick={() => track("family_setup_interest", { source: "cta" })}
-            className="mt-1 inline-flex min-h-11 items-center justify-center self-start rounded-full border border-border-strong px-[22px] py-3 text-[14px] font-semibold text-ink transition-colors hover:bg-tinted"
+            href="/?setup=1#waitlist"
+            className="mt-1 self-start"
           >
-            {familySetup.cta}
-          </Link>
+            {familySetup.cta.label}
+          </Button>
         </Card>
       </Container>
     </section>

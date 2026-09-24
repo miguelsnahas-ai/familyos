@@ -2,19 +2,23 @@ import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "react";
 
 type CardProps = HTMLAttributes<HTMLDivElement> & {
-  tone?: "surface" | "sunken" | "dark";
+  tone?: "peach" | "sage" | "sky" | "neutral" | "dark";
   interactive?: boolean;
 };
 
-export function Card({ tone = "surface", interactive = false, className, ...props }: CardProps) {
+// Flat by design — no shadows, no borders. Separation between cards
+// and the page comes from tint alone.
+export function Card({ tone = "neutral", interactive = false, className, ...props }: CardProps) {
   return (
     <div
       className={cn(
-        "rounded-card p-5 shadow-[var(--shadow-q-sm)] transition-[box-shadow,transform] duration-[180ms] ease-out",
-        tone === "surface" && "bg-surface border border-border text-ink",
-        tone === "sunken" && "bg-canvas border border-border text-ink",
-        tone === "dark" && "bg-ink border border-transparent text-cream",
-        interactive && "hover:-translate-y-0.5 hover:shadow-[var(--shadow-q-md)]",
+        "rounded-lg p-6 transition-[filter,transform] duration-150 ease-out",
+        tone === "peach" && "bg-peach-100 text-ink-body",
+        tone === "sage" && "bg-sage-100 text-ink-body",
+        tone === "sky" && "bg-sky-100 text-ink-body",
+        tone === "neutral" && "bg-paper-raised text-ink-body",
+        tone === "dark" && "bg-ink text-cream",
+        interactive && "cursor-pointer hover:brightness-[0.98]",
         className,
       )}
       {...props}

@@ -12,8 +12,8 @@ export default function PrivacidadePage() {
       <Nav />
       <main className="flex-1 py-20">
         <Container className="max-w-[680px]">
-          <h1 className="text-title text-ink">Política de privacidade</h1>
-          <div className="mt-8 flex flex-col gap-5 text-[16px] leading-relaxed text-ink-soft">
+          <h1 className="text-display-md text-ink">Política de privacidade</h1>
+          <div className="mt-8 flex flex-col gap-5 text-[16px] leading-relaxed text-ink-body">
             <p>
               O Quintal coleta apenas os dados que você nos entrega diretamente pelo
               formulário de lista de espera: nome, email, WhatsApp e as respostas sobre a
@@ -29,9 +29,9 @@ export default function PrivacidadePage() {
             </p>
             <p>
               Você pode pedir a exclusão dos seus dados a qualquer momento escrevendo
-              para <a className="text-link hover:text-clay underline" href={`mailto:${footer.email}`}>{footer.email}</a>.
+              para <a className="text-forest hover:text-forest-soft underline" href={`mailto:${footer.email}`}>{footer.email}</a>.
             </p>
-            <p className="text-[13px] text-ink-faint">
+            <p className="text-[13px] text-ink-muted">
               Este é um documento provisório enquanto o produto está em fase de
               validação. Uma versão completa será publicada antes do lançamento
               comercial.
